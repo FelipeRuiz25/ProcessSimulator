@@ -29,6 +29,7 @@ public class PanelCreateProcess extends JPanel {
         this.labelTextTimeProcess = new JLabel(Constants.TEXT_LABEL_TIME_PROCESS);
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
         spinnerNumberModel.setMinimum(1);
+        spinnerNumberModel.setMaximum(300);
         this.spinnerSegProcess = new JSpinner(spinnerNumberModel);
         spinnerSegProcess.setValue(1);
         this.labelSeg = new JLabel(Constants.TEXT_SEG);
