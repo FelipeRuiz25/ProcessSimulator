@@ -1,65 +1,83 @@
 package so.simulator.models;
 
+import so.util.observer.Observable;
 import so.util.observer.Observer;
-import so.util.queue.Queue;
+import so.util.observer.ObserverEvent;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.concurrent.TimeUnit;
 
-public class CPU {
+public class CPU extends Thread {
 
-    private ArrayList<Process> blockedList;
-    private Queue<Process> readyQueue;
-    private ProcessExecutor executor;
+    private final Observable observable = new Observable();
+    public static final int TIME_STEP = 1;
+
+    private int executionTime;
+    private int executionTimeRemaining;
+
+    private Process processRunning;
 
     public CPU(int executionTime) {
-        //crea la lista de bloqueados
-        blockedList = new ArrayList<>();
-        //Crea una cola que compara los procesos por su nombre
-        readyQueue = new Queue<>(Comparator.comparing(Process::getProcessName));
-        //Crea la el objeto encargado de manejar el turno de uso de la CPU
-        executor = new ProcessExecutor(executionTime);
+        this.executionTime = executionTime;
     }
 
-    public ArrayList<String> getReadyQueue(){
-        ArrayList<String> queue = new ArrayList<>();
-        for (Process p : readyQueue) {
-            queue.add(p.getProcessName());
-        }
-        return queue;
+    public void runProcess(Process process) throws ProcessException {
+        if (process == null) throw new ProcessException();
+        reset();
+        processRunning = process;
+        start();
     }
 
-    public ArrayList<String> getBlockedList(){
-        ArrayList<String> list = new ArrayList<>();
-        blockedList.forEach(process -> list.add(process.getProcessName()));
-        return list;
-    }
-
-    public void addExecutionObserver(Observer observer){
-        executor.addObserver(observer);
-    }
-
-    public void addProcess(int secondsOfExecution){
-        Process process = new Process(secondsOfExecution);
-        readyQueue.push(process);
-    }
-
-    public void dispatchProcess(){
+    @Override
+    public void run() {
         try {
-            executor.runProcess(readyQueue.poll());
-        } catch (ProcessException e) {
+            while (processRunning.isAlive() && hasTime()) {
+                //Resta el tiempo de ejecución para el proceso actual
+                executionTimeRemaining -= TIME_STEP;
+                //ejecuta el proceso el tiempo asignado
+                processRunning.run(TIME_STEP);
+                //duerme el hilo segundos
+                TimeUnit.SECONDS.sleep(TIME_STEP);
+                //notifica a los observadores que actualicen la vista
+                observable.notify(ObserverEvent.UPDATE_TIME);
+            }
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        if (processRunning.isAlive()){
+            observable.notify(ObserverEvent.TIME_EXPIRATION);
+        }else {
+            observable.notify(ObserverEvent.BLOCK);
+        }
     }
 
-    public void blockProcess(){
-        blockedList.add(executor.reset());
+    private boolean hasTime() {
+        return executionTimeRemaining > 0;
     }
 
-    public void wakeUpProcess(String processName){
-        // TODO: 14/12/21 Testear código
-        Process process = blockedList.stream()
-                .filter(p -> p.getProcessName().equals(processName))
-                .findFirst().orElse(null);
+    public void addObserver(Observer observer) {
+        observable.addObserver(observer);
+    }
+
+    @Override
+    public void interrupt(){
+        super.interrupt();
+        reset();
+    }
+
+    public Process reset(){
+        executionTimeRemaining = executionTime;
+        return processRunning;
+    }
+
+    public int getExecutionTime() {
+        return executionTime;
+    }
+
+    public int getExecutionTimeRemaining() {
+        return executionTimeRemaining;
+    }
+
+    public Process getProcessRunning() {
+        return processRunning;
     }
 }
