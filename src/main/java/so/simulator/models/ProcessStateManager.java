@@ -113,4 +113,22 @@ public class ProcessStateManager {
     public void setCpuExecuteTime(int seconds){
        cpu.setExecutionTime(seconds);
     }
+
+    /**
+     * Obtienen el tiempo de ejcución restante que la CPU
+     * dispone para el proceso actual
+     * @return segundos de ejecución para el proceso actual
+     */
+    public int getCPUTimeRemaining() {
+        return cpu.getExecutionTimeRemaining();
+    }
+
+    /**
+     * Obtiene el tiempo que le queda al proceso en ejecución en la CPU
+     * para completar su tiempo de ejecución general
+     * @return segundos restantes de ejecución total del proceso
+     */
+    public int getProcessTimeRemaining() {
+        return cpu.getProcessRunning().getSecondsOfExecutionRemaining();
+    }
 }
