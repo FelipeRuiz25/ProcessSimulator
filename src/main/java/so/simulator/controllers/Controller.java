@@ -42,7 +42,7 @@ public class Controller implements ActionListener, Observer {
     @Override
     public void update(ObserverEvent event) {
         System.out.println(event);
-        switch (event) {
+        switch (event){
             case UPDATE_TIME:
                 break;
             case BLOCK:
@@ -50,5 +50,27 @@ public class Controller implements ActionListener, Observer {
             case TIME_EXPIRATION:
                 break;
         }
+    }
+
+    /**
+     * Actualiza los tiempos restantes de ejecución
+     */
+    private void updateTime() {
+        int ucpTime = stateManager.getCPUTimeRemaining();
+        guiManager.setTimeRestUCP(ucpTime);
+        int processTime = stateManager.getProcessTimeRemaining();
+        guiManager.setTimeAssignUCP(processTime);
+    }
+
+    private void blockProcess() {
+        //Bloque el proceso de la UCP
+        stateManager.blockProcess();
+        try {
+            stateManager.dispatchProcess();
+            // TODO: 14/12/21 actualizar cola en la vista
+        } catch (CPUException e) {
+            e.printStackTrace();
+        }
+        throw new UnsupportedOperationException("Toca actualizar la pinshi cola en la vista >:");
     }
 }

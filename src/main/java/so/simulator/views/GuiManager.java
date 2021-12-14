@@ -1,6 +1,9 @@
 package so.simulator.views;
 
-import so.simulator.views.components.ModifiedFlowLayout;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme;
 import so.simulator.views.components.MyJButton;
 import so.simulator.views.panels.PanelAdminUCP;
 import so.simulator.views.panels.PanelCreateProcess;
@@ -114,8 +117,8 @@ public class GuiManager extends JFrame {
         //add(blockedList);
         add(labelReadyQueue);
         add(labelBlockedList);
+        add(panelProcessExecution);
         add(btnWakeProcess);
-        this.repaint();
     }
 
     public int getTimeAssignUCP() {
