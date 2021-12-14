@@ -1,8 +1,9 @@
 package so.simulator.models;
 
-import so.util.observer.Observable;
+//import so.util.observer.Observable;
 import so.util.observer.ObserverEvent;
 
+import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 public class ProcessExecutor extends Observable implements Runnable {
@@ -38,11 +39,11 @@ public class ProcessExecutor extends Observable implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (processRunning.isAlive()){
+        /*if (processRunning.isAlive()){
             notify(ObserverEvent.TIME_EXPIRATION);
         }else {
             notify(ObserverEvent.BLOCK);
-        }
+        }*/
     }
 
     private boolean hasTime() {

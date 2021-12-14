@@ -1,6 +1,6 @@
 package so.simulator.models;
 
-import so.util.observer.Observer;
+//import so.util.observer.Observer;
 import so.util.queue.Queue;
 
 import java.util.ArrayList;
@@ -19,10 +19,10 @@ public class CPU {
         running = new ProcessExecutor(executionTime);
     }
 
-    public void addExecutionObserver(Observer observer){
+  /*  public void addExecutionObserver(Observer observer){
         running.addObserver(observer);
     }
-
+*/
     public void addProcess(int secondsOfExecution){
         Process process = new Process(secondsOfExecution);
         readyQueue.push(process);
