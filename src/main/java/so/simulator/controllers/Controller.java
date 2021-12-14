@@ -1,6 +1,7 @@
 package so.simulator.controllers;
 
 import so.simulator.models.ProcessStateManager;
+import so.simulator.models.exceptions.CPUException;
 import so.simulator.views.GuiManager;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
@@ -44,10 +45,13 @@ public class Controller implements ActionListener, Observer {
         System.out.println(event);
         switch (event){
             case UPDATE_TIME:
+                updateTime();
                 break;
             case BLOCK:
+                blockProcess();
                 break;
             case TIME_EXPIRATION:
+
                 break;
         }
     }

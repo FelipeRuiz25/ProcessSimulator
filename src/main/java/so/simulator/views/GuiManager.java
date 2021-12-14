@@ -1,9 +1,7 @@
 package so.simulator.views;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
-import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
-import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import so.simulator.views.components.ModifiedFlowLayout;
 import so.simulator.views.components.MyJButton;
 import so.simulator.views.panels.PanelAdminUCP;
 import so.simulator.views.panels.PanelCreateProcess;
@@ -28,6 +26,7 @@ public class GuiManager extends JFrame {
 
     public GuiManager(ActionListener listener) {
         super(Constants.tittle);
+        FlatCyanLightIJTheme.setup();
         this.listener = listener;
         this.panelAdminUCP = new PanelAdminUCP(listener);
         this.panelCreateProcess = new PanelCreateProcess(listener);
@@ -66,7 +65,7 @@ public class GuiManager extends JFrame {
     }
 
     public void updateReadyQueue(ArrayList<String> namesProcess) {
-        DefaultListModel listModel = new DefaultListModel();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
         for (String process : namesProcess) {
             System.out.println(process);
             listModel.addElement(process);
@@ -79,7 +78,7 @@ public class GuiManager extends JFrame {
     }
 
     public void updateBlockedList(ArrayList<String> namesProcess) {
-        DefaultListModel listModel = new DefaultListModel();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
         for (String process : namesProcess) {
             System.out.println(process);
             listModel.addElement(process);
