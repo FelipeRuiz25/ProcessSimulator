@@ -1,5 +1,7 @@
 package so.simulator.models;
 
+import so.simulator.models.exceptions.CPUException;
+import so.simulator.models.exceptions.ErrorCode;
 import so.util.observer.Observer;
 import so.util.queue.Queue;
 
@@ -12,13 +14,15 @@ public class ProcessStateManager {
     private Queue<Process> readyQueue;
     private CPU cpu;
 
-    public ProcessStateManager(int executionTime) {
+    public ProcessStateManager(Observer observer) {
         //crea la lista de bloqueados
         blockedList = new ArrayList<>();
+
         //Crea una cola que compara los procesos por su nombre
         readyQueue = new Queue<>(Comparator.comparing(Process::getProcessName));
+
         //Crea la el objeto encargado de manejar el turno de uso de la CPU
-        cpu = new CPU(executionTime);
+        cpu = new CPU(observer);
     }
 
     /**
@@ -61,12 +65,10 @@ public class ProcessStateManager {
     /**
      *
      */
-    public void dispatchProcess(){
-        try {
-            cpu.runProcess(readyQueue.poll());
-        } catch (ProcessException e) {
-            e.printStackTrace();
-        }
+    public void dispatchProcess() throws CPUException {
+        Process process = readyQueue.poll();
+        if (process == null) throw new CPUException(ErrorCode.NO_PROCESS_READY);
+        cpu.runProcess(process);
     }
 
     public void blockProcess(){
@@ -78,5 +80,9 @@ public class ProcessStateManager {
         Process process = blockedList.stream()
                 .filter(p -> p.getProcessName().equals(processName))
                 .findFirst().orElse(null);
+    }
+
+    public boolean hasProcessesReady(){
+        return !readyQueue.isEmpty();
     }
 }

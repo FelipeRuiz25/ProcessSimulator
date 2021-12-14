@@ -9,5 +9,8 @@
         <module name="ProcessSimulator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ProcessSimulator" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

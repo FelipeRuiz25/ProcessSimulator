@@ -1,5 +1,7 @@
 package so.simulator.models;
 
+import so.simulator.models.exceptions.CPUException;
+import so.simulator.models.exceptions.ErrorCode;
 import so.util.observer.Observable;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
@@ -16,12 +18,16 @@ public class CPU extends Thread {
 
     private Process processRunning;
 
+    public CPU(Observer observer) {
+        observable.addObserver(observer);
+    }
+
     public CPU(int executionTime) {
         this.executionTime = executionTime;
     }
 
-    public void runProcess(Process process) throws ProcessException {
-        if (process == null) throw new ProcessException();
+    public void runProcess(Process process) throws CPUException {
+        if (process == null) throw new CPUException(ErrorCode.NO_ASSIGNED_PROCESS);
         reset();
         processRunning = process;
         start();
@@ -79,5 +85,9 @@ public class CPU extends Thread {
 
     public Process getProcessRunning() {
         return processRunning;
+    }
+
+    public void setExecutionTime(int executionTime) {
+        this.executionTime = executionTime;
     }
 }
