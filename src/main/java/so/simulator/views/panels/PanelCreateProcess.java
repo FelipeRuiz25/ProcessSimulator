@@ -41,7 +41,7 @@ public class PanelCreateProcess extends JPanel {
         this.labelNameProcess.setBounds(20, 20, 60, 20);
         this.textFieldNameProcess.setBounds(80, 20, 80, 20);
         this.labelTextTimeProcess.setBounds(20, 50, 60, 20);
-        this.spinnerSegProcess.setBounds(80, 50, 60, 20);
+        this.spinnerSegProcess.setBounds(80, 50, 60, 30);
         this.labelSeg.setBounds(145, 50, 60, 20);
         this.btnCreateProcess.setBounds(200, 20, 120, 50);
         add(labelNameProcess);
@@ -58,5 +58,9 @@ public class PanelCreateProcess extends JPanel {
 
     public int getTimeProcess() {
         return (int) spinnerSegProcess.getValue();
+    }
+
+    public void resetSpinner() {
+        this.spinnerSegProcess.setValue(1);
     }
 }

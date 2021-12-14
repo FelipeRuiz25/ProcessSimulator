@@ -1,6 +1,7 @@
 package so.simulator.views;
 
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
+import so.simulator.controllers.Commands;
 import so.simulator.views.components.ModifiedFlowLayout;
 import so.simulator.views.components.MyJButton;
 import so.simulator.views.panels.PanelAdminUCP;
@@ -35,7 +36,7 @@ public class GuiManager extends JFrame {
         this.blockedList = new JList();
         this.labelBlockedList = new JLabel("Procesos bloqueados: ");
         this.labelReadyQueue = new JLabel("Procesos listos: ");
-        this.btnWakeProcess = new MyJButton(listener, "btnWakeProcess", "Despertar");
+        this.btnWakeProcess = new MyJButton(listener, Commands.BTN_WAKE_PROCESS, "Despertar");
         this.init();
     }
 
@@ -44,8 +45,8 @@ public class GuiManager extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setVisible(true);
         this.fill();
+        setVisible(true);
     }
 
     public void setTimeAssignUCP(int time) {
@@ -110,7 +111,7 @@ public class GuiManager extends JFrame {
 
         this.panelProcessExecution.setBounds(270, 150, 250, 270);
         add(panelProcessExecution);
-        this.btnWakeProcess.setBounds(580,550, 140, 30);
+        this.btnWakeProcess.setBounds(580, 550, 140, 30);
         add(panelAdminUCP);
         add(panelCreateProcess);
         //add(blockedList);
@@ -126,5 +127,9 @@ public class GuiManager extends JFrame {
 
     public int getTimeRestUCP() {
         return this.panelAdminUCP.getTimeRestUCP();
+    }
+
+    public void resetSpinner() {
+        this.panelCreateProcess.resetSpinner();
     }
 }

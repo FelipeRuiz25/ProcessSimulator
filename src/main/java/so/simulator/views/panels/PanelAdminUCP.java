@@ -26,10 +26,9 @@ public class PanelAdminUCP extends JPanel {
         this.timeRest = new JLabel(Constants.TEXT_LABEl_TIME_REST);
         this.textSegTimeAssign = new JLabel(Constants.TEXT_SEG);
         this.textSegTimeRest = new JLabel(Constants.TEXT_SEG);
-        this.textTimeAssign = new JTextField();
+        this.textTimeAssign = new JTextField("1");
         this.textTimeRest = new JTextField();
         textTimeRest.setEnabled(false);
-        textTimeAssign.setEnabled(false);
         fill();
     }
 

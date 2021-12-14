@@ -25,11 +25,13 @@ public class Controller implements ActionListener, Observer {
         switch (e.getActionCommand()) {
             case Commands.BTN_STAR_UCP:
                 int timeAssign = guiManager.getTimeAssignUCP();
-                int timeRest = guiManager.getTimeRestUCP();
-
+                System.out.println(timeAssign);
                 break;
             case Commands.BTN_CREATE_PROCESS:
                 createProcess();
+                guiManager.resetSpinner();
+                break;
+
         }
     }
 
@@ -43,7 +45,7 @@ public class Controller implements ActionListener, Observer {
     @Override
     public void update(ObserverEvent event) {
         System.out.println(event);
-        switch (event){
+        switch (event) {
             case UPDATE_TIME:
                 updateTime();
                 break;
