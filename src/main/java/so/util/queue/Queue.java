@@ -1,14 +1,17 @@
 package so.util.queue;
 
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Spliterator;
 import java.util.StringJoiner;
+import java.util.function.Consumer;
 
 /**
  * @author Samuel f. Ruiz
  * @version 1.0
  * @since 1/07/20
  */
-public class Queue<T> {
+public class Queue<T> implements Iterable<T>{
 
     private Node<T> head;
     private Comparator<T> tComparator;
@@ -97,15 +100,22 @@ public class Queue<T> {
 
     public String show(){
         if(!isEmpty()) {
-            /*StringJoiner joiner = new StringJoiner(", ");
-            Node<T> node = head;
-            while (node != null) {
-                joiner.add(""+node.getData());
-                node = node.getNext();
-            }
-            return "{"+joiner+"}";*/
             return head.getData().toString();
         }
         return "{}";
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ListIterator<>(head);
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+        Node<T> node = head;
+        while (node != null) {
+            action.accept(node.getData());
+            node = node.getNext();
+        }
     }
 }
