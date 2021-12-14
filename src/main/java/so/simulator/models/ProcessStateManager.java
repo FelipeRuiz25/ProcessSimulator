@@ -63,7 +63,10 @@ public class ProcessStateManager {
     }
 
     /**
-     *
+     * Pone en estado de ejecución el primer proceso
+     * que se encuentre en la cola de espera
+     * @throws CPUException si no hay procesos en la linea de espera
+     * @see ErrorCode codigo específico de la excepcion
      */
     public void dispatchProcess() throws CPUException {
         Process process = readyQueue.poll();
@@ -71,17 +74,34 @@ public class ProcessStateManager {
         cpu.runProcess(process);
     }
 
+    /**
+     * Envia el proceso en estado de ejecución a la lista de bloqueados
+     * y libera la UCP
+     */
     public void blockProcess(){
         blockedList.add(cpu.reset());
     }
 
+    /**
+     * Despierta el proceso  con el nombre especificado de la lista de bloqueados y lo
+     * envia a la cola de espera
+     * @param processName nombre del proceso
+     */
     public void wakeUpProcess(String processName){
         // TODO: 14/12/21 Testear código
         Process process = blockedList.stream()
                 .filter(p -> p.getProcessName().equals(processName))
                 .findFirst().orElse(null);
+        if (process != null) {
+            blockedList.remove(process);
+            process.wakeUp();
+            readyQueue.push(process);
+        }
     }
 
+    /**
+     * Indica si aún hay procesos en la cola de espera
+     */
     public boolean hasProcessesReady(){
         return !readyQueue.isEmpty();
     }

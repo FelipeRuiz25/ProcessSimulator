@@ -43,6 +43,7 @@ public class Controller implements ActionListener, Observer {
         System.out.println(event);
         switch (event){
             case UPDATE_TIME:
+
                 break;
             case BLOCK:
                 break;
