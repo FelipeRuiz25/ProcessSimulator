@@ -40,11 +40,11 @@ public class PanelCreateProcess extends JPanel {
     private void fill() {
         this.setLayout(null);
         this.labelNameProcess.setBounds(20, 20, 60, 20);
-        this.textFieldNameProcess.setBounds(80, 20, 80, 20);
+        this.textFieldNameProcess.setBounds(80, 20, 90, 30);
         this.labelTextTimeProcess.setBounds(20, 50, 60, 20);
-        this.spinnerSegProcess.setBounds(80, 50, 60, 30);
-        this.labelSeg.setBounds(145, 50, 60, 20);
-        this.btnCreateProcess.setBounds(200, 20, 120, 50);
+        this.spinnerSegProcess.setBounds(80, 50, 90, 30);
+        this.labelSeg.setBounds(175, 55, 60, 20);
+        this.btnCreateProcess.setBounds(210, 20, 130, 60);
         add(labelNameProcess);
         add(textFieldNameProcess);
         add(labelTextTimeProcess);
