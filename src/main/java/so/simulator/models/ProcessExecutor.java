@@ -1,13 +1,14 @@
 package so.simulator.models;
 
-//import so.util.observer.Observable;
+import so.util.observer.Observable;
+import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
 
-import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
-public class ProcessExecutor extends Observable implements Runnable {
+public class ProcessExecutor extends Thread {
 
+    private final Observable observable = new Observable();
     public static final int TIME_STEP = 1;
 
     private int executionTime;
@@ -20,9 +21,10 @@ public class ProcessExecutor extends Observable implements Runnable {
     }
 
     public void runProcess(Process process) throws ProcessException {
-        if (processRunning == null) throw new ProcessException();
-        executionTimeRemaining = executionTime;
+        if (process == null) throw new ProcessException();
+        reset();
         processRunning = process;
+        start();
     }
 
     @Override
@@ -39,14 +41,29 @@ public class ProcessExecutor extends Observable implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        /*if (processRunning.isAlive()){
-            notify(ObserverEvent.TIME_EXPIRATION);
+        if (processRunning.isAlive()){
+            observable.notify(ObserverEvent.TIME_EXPIRATION);
         }else {
-            notify(ObserverEvent.BLOCK);
-        }*/
+            observable.notify(ObserverEvent.BLOCK);
+        }
     }
 
     private boolean hasTime() {
         return executionTimeRemaining > 0;
+    }
+
+    public void addObserver(Observer observer) {
+        observable.addObserver(observer);
+    }
+
+    @Override
+    public void interrupt(){
+        super.interrupt();
+        reset();
+    }
+
+    public Process reset(){
+        executionTimeRemaining = executionTime;
+        return processRunning;
     }
 }
