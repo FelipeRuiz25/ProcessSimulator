@@ -85,4 +85,12 @@ public class ProcessStateManager {
     public boolean hasProcessesReady(){
         return !readyQueue.isEmpty();
     }
+
+    /**
+     * Establece el tiempo que la UCP otorgará a cada proceso
+     * @param seconds segundos de ejecución
+     */
+    public void setCpuExecuteTime(int seconds){
+       cpu.setExecutionTime(seconds);
+    }
 }

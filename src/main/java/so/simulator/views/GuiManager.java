@@ -1,5 +1,9 @@
 package so.simulator.views;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.intellijthemes.FlatArcDarkIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme;
 import so.simulator.views.components.MyJButton;
 import so.simulator.views.panels.PanelAdminUCP;
 import so.simulator.views.panels.PanelCreateProcess;
@@ -40,27 +44,27 @@ public class GuiManager extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        setVisible(true);
         this.fill();
+        setVisible(true);
     }
 
-    public void setTimeAssignUCP(int time){
+    public void setTimeAssignUCP(int time) {
 //        this.panelAdminUCP.setTimeAssignUCP(time);
     }
 
-    public void setTimeRestUCP(int time){
+    public void setTimeRestUCP(int time) {
         this.panelAdminUCP.setTimeRestUCP(time);
     }
 
-    public int getNameNewProcess(){
+    public int getNameNewProcess() {
         return this.panelCreateProcess.getNameProcess();
     }
 
-    public int getTimeNewProcess(){
+    public int getTimeNewProcess() {
         return this.panelCreateProcess.getTimeProcess();
     }
 
-    public DefaultListModel addProcessReadyQueue(int nameProcess){
+    public DefaultListModel addProcessReadyQueue(int nameProcess) {
         DefaultListModel listModel = (DefaultListModel) readyQueue.getModel();
         listModel.addElement(nameProcess);
         readyQueue.setModel(listModel);

@@ -33,7 +33,7 @@ public class Controller implements ActionListener, Observer {
                 */
                 int i = 0;
                 guiManager.addProcessReadyQueue(i);
-                i++;
+                //i++;
                 break;
         }
     }
