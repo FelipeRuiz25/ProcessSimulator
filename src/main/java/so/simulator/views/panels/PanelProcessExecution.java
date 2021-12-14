@@ -15,8 +15,6 @@ public class PanelProcessExecution extends JPanel {
     private JLabel labelNameProcess;
     private JLabel labelTimeAssign;
     private JLabel labelTimeRest;
-    private JLabel labelSegRest;
-    private JLabel labelSegAssign;
     private JTextField textFieldNameProcess;
     private JTextField textFieldTimeAssign;
     private JTextField textFieldTimeRest;
@@ -35,8 +33,17 @@ public class PanelProcessExecution extends JPanel {
         this.textFieldNameProcess = new JTextField();
         this.textFieldTimeAssign = new JTextField();
         this.textFieldTimeRest = new JTextField();
+        this.textFieldTimeRest.setEnabled(false);
+        this.textFieldNameProcess.setEnabled(false);
+        this.textFieldTimeAssign.setEnabled(false);
         this.btnStopProcess = new MyJButton(listener, Commands.BTN_STOP_PROCESS, "Detener");
         this.fill();
+    }
+
+    public void setProcessActual(String nameProcessActual, int timeAssign, int timeRest) {
+        this.textFieldNameProcess.setText(nameProcessActual);
+        this.textFieldTimeAssign.setText(String.valueOf(timeAssign));
+        this.textFieldTimeRest.setText(String.valueOf(timeRest));
     }
 
     private void fill() {

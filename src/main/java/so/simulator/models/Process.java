@@ -11,31 +11,33 @@ public class Process {
 
     /**
      * Crea un nuevo proceso y le asigna su tiempo de ejecución
+     *
      * @param secondsOfExecution tiempo de ejecución en segundos
      */
     public Process(int secondsOfExecution) {
         this.processName = String.valueOf(sequential);
         this.secondsOfExecution = secondsOfExecution;
         secondsOfExecutionRemaining = secondsOfExecution;
+        sequential++;
     }
 
-    public void run(int time){
-        if(time > secondsOfExecution){
+    public void run(int time) {
+        if (time > secondsOfExecution) {
             secondsOfExecutionRemaining = 0;
-        }else {
+        } else {
             secondsOfExecutionRemaining -= time;
         }
     }
 
-    public void wakeUp(){
+    public void wakeUp() {
         secondsOfExecutionRemaining = secondsOfExecution;
     }
 
-    public boolean isAlive(){
+    public boolean isAlive() {
         return secondsOfExecutionRemaining > 0;
     }
 
-    public void blockProcess(){
+    public void blockProcess() {
         secondsOfExecutionRemaining = 0;
     }
 

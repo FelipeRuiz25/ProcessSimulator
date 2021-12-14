@@ -28,20 +28,21 @@ public class Controller implements ActionListener, Observer {
 
                 break;
             case Commands.BTN_CREATE_PROCESS:
-                /*int nameProcess = guiManager.getNameNewProcess();
-                int time = guiManager.getTimeNewProcess();
-                */
-                int i = 0;
-                guiManager.addProcessReadyQueue(i);
-                i++;
-                break;
+                createProcess();
         }
+    }
+
+    private void createProcess() {
+        int time = guiManager.getTimeNewProcess();
+        stateManager.addProcess(time);
+        guiManager.updateReadyQueue(stateManager.getReadyQueue());
+        return;
     }
 
     @Override
     public void update(ObserverEvent event) {
         System.out.println(event);
-        switch (event){
+        switch (event) {
             case UPDATE_TIME:
                 break;
             case BLOCK:
