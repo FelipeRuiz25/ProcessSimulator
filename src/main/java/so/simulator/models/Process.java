@@ -1,44 +1,53 @@
 package so.simulator.models;
 
-import java.util.concurrent.TimeUnit;
-
-public class Process extends Thread {
+public class Process {
 
     //Contador para los nombres de los procesos
     private static int sequential;
 
-    //Segundos que el proceso va estar en ejecucuión
-    private int secondsOfExecution;
-    //Segundos que le quedan al proceso del tiempo de ejecucucion
-    private int secondsOfExecutionRemaining;
+    private String processName;
+    private int secondsOfExecution;//Segundos que el proceso va estar en ejecucuión
+    private int secondsOfExecutionRemaining;//Segundos que le quedan al proceso del tiempo de ejecucucion
 
     /**
      * Crea un nuevo proceso y le asigna su tiempo de ejecución
      * @param secondsOfExecution tiempo de ejecución en segundos
      */
     public Process(int secondsOfExecution) {
-        this.setName(String.valueOf(sequential));
+        this.processName = String.valueOf(sequential);
         this.secondsOfExecution = secondsOfExecution;
         secondsOfExecutionRemaining = secondsOfExecution;
     }
 
-
-    @Override
-    public void run() {
-        super.run();
-        try {
-            while (secondsOfExecutionRemaining > 0) {
-                //duerme el hilo un segundo
-                TimeUnit.SECONDS.sleep(1);
-                secondsOfExecutionRemaining--;
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    public void run(int time){
+        if(time > secondsOfExecution){
+            secondsOfExecutionRemaining = 0;
+        }else {
+            secondsOfExecutionRemaining -= time;
         }
     }
 
-    public void blockProcess(){
+    public void wakeUp(){
         secondsOfExecutionRemaining = secondsOfExecution;
-        super.interrupt();
+    }
+
+    public boolean isAlive(){
+        return secondsOfExecutionRemaining > 0;
+    }
+
+    public void blockProcess(){
+        secondsOfExecutionRemaining = 0;
+    }
+
+    public String getProcessName() {
+        return processName;
+    }
+
+    public int getSecondsOfExecution() {
+        return secondsOfExecution;
+    }
+
+    public int getSecondsOfExecutionRemaining() {
+        return secondsOfExecutionRemaining;
     }
 }
