@@ -21,6 +21,21 @@ public class Controller implements ActionListener, Observer {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
+        switch (e.getActionCommand()) {
+            case Commands.BTN_STAR_UCP:
+                int timeAssign = guiManager.getTimeAssignUCP();
+                int timeRest = guiManager.getTimeRestUCP();
+
+                break;
+            case Commands.BTN_CREATE_PROCESS:
+                /*int nameProcess = guiManager.getNameNewProcess();
+                int time = guiManager.getTimeNewProcess();
+                */
+                int i = 0;
+                guiManager.addProcessReadyQueue(i);
+                i++;
+                break;
+        }
     }
 
     @Override

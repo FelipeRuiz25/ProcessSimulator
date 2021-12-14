@@ -54,4 +54,20 @@ public class PanelAdminUCP extends JPanel {
         add(textSegTimeAssign);
         add(textTimeRest);
     }
+
+    public void setTimeAssignUCP(int time) {
+        this.textTimeAssign.setText(String.valueOf(time));
+    }
+
+    public void setTimeRestUCP(int time) {
+        this.textTimeRest.setText(String.valueOf(time));
+    }
+
+    public int getTimeAssignUCP() {
+        return Integer.parseInt(this.textTimeAssign.getText());
+    }
+
+    public int getTimeRestUCP() {
+        return Integer.parseInt(this.textTimeRest.getText());
+    }
 }

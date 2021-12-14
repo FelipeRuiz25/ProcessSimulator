@@ -1,10 +1,12 @@
 package so.simulator.views;
 
+import so.simulator.views.components.MyJButton;
 import so.simulator.views.panels.PanelAdminUCP;
 import so.simulator.views.panels.PanelCreateProcess;
 import so.simulator.views.panels.PanelProcessExecution;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class GuiManager extends JFrame {
@@ -13,6 +15,11 @@ public class GuiManager extends JFrame {
     private PanelAdminUCP panelAdminUCP;
     private PanelCreateProcess panelCreateProcess;
     private PanelProcessExecution panelProcessExecution;
+    private JList readyQueue;
+    private JList blockedList;
+    private JLabel labelReadyQueue;
+    private JLabel labelBlockedList;
+    private MyJButton btnWakeProcess;
 
     public GuiManager(ActionListener listener) {
         super(Constants.tittle);
@@ -20,6 +27,11 @@ public class GuiManager extends JFrame {
         this.panelAdminUCP = new PanelAdminUCP(listener);
         this.panelCreateProcess = new PanelCreateProcess(listener);
         this.panelProcessExecution = new PanelProcessExecution(listener);
+        this.readyQueue = new JList();
+        this.blockedList = new JList();
+        this.labelBlockedList = new JLabel("Procesos bloqueados: ");
+        this.labelReadyQueue = new JLabel("Procesos listos: ");
+        this.btnWakeProcess = new MyJButton(listener, "btnWakeProcess", "Despertar");
         this.init();
     }
 
@@ -32,11 +44,56 @@ public class GuiManager extends JFrame {
         this.fill();
     }
 
+    public void setTimeAssignUCP(int time){
+//        this.panelAdminUCP.setTimeAssignUCP(time);
+    }
+
+    public void setTimeRestUCP(int time){
+        this.panelAdminUCP.setTimeRestUCP(time);
+    }
+
+    public int getNameNewProcess(){
+        return this.panelCreateProcess.getNameProcess();
+    }
+
+    public int getTimeNewProcess(){
+        return this.panelCreateProcess.getTimeProcess();
+    }
+
+    public DefaultListModel addProcessReadyQueue(int nameProcess){
+        DefaultListModel listModel = (DefaultListModel) readyQueue.getModel();
+        listModel.addElement(nameProcess);
+        readyQueue.setModel(listModel);
+        return listModel;
+    }
+
     private void fill() {
         this.setLayout(null);
         this.panelAdminUCP.setBounds(20, 20, 360, 100);
         this.panelCreateProcess.setBounds(400, 20, 360, 100);
+        this.readyQueue.setBounds(30, 160, 230, 380);
+        readyQueue.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 1));
+        this.blockedList.setBounds(530, 160, 230, 380);
+        blockedList.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 1));
+        labelReadyQueue.setBounds(30, 130, 230, 20);
+        labelBlockedList.setBounds(530, 130, 230, 20);
+        this.panelProcessExecution.setBounds(270, 150, 250, 270);
+        this.btnWakeProcess.setBounds(580, 550, 140, 30);
         add(panelAdminUCP);
         add(panelCreateProcess);
+        add(readyQueue);
+        add(blockedList);
+        add(labelReadyQueue);
+        add(labelBlockedList);
+        add(panelProcessExecution);
+        add(btnWakeProcess);
+    }
+
+    public int getTimeAssignUCP() {
+        return this.panelAdminUCP.getTimeAssignUCP();
+    }
+
+    public int getTimeRestUCP() {
+        return this.panelAdminUCP.getTimeRestUCP();
     }
 }
