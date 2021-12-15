@@ -63,7 +63,7 @@ public class GuiManager extends JFrame {
         this.panelProcessExecution.setEnableComponents(status);
     }
 
-    public void clearList(){
+    public void clearList() {
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
@@ -145,7 +145,7 @@ public class GuiManager extends JFrame {
         add(btnWakeProcess);
     }
 
-    public void setEnableLists(boolean status){
+    public void setEnableLists(boolean status) {
         this.readyQueue.setEnabled(status);
         this.blockedList.setEnabled(status);
     }
@@ -158,14 +158,14 @@ public class GuiManager extends JFrame {
         return this.panelAdminUCP.getTimeRestUCP();
     }
 
-    public void clearLists(){
+    public void clearLists() {
         DefaultListModel listModelEmpty = new DefaultListModel();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
         this.setEnableLists(false);
     }
 
-    public int getFirstProcess(){
+    public int getFirstProcess() {
         return this.readyQueue.getFirstVisibleIndex();
     }
 
