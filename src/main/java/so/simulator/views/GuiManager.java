@@ -48,10 +48,29 @@ public class GuiManager extends JFrame {
         this.btnWakeProcess.setEnabled(false);
         this.setEnableLists(false);
         this.fill();
-
         setVisible(true);
     }
 
+    public void resetSpinnerPanelCreateProcess(){
+        this.panelCreateProcess.resetSpinner();
+    }
+
+    public void setEnableBtnWakeProcess(boolean status){
+        this.btnWakeProcess.setEnabled(status);
+    }
+
+    public void clearList(){
+        DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
+        this.readyQueue.setModel(listModelEmpty);
+        this.blockedList.setModel(listModelEmpty);
+    }
+
+    public void setEnablePanelProcessExecution(boolean status){
+        this.panelProcessExecution.setEnableComponents(status);
+    }
+
+    public void setTimeAssignUCP(int time) {
+//        this.panelAdminUCP.setTimeAssignUCP(time);
     public void setEnableBtnWakeProcess(boolean status){
         this.btnWakeProcess.setEnabled(status);
     }
@@ -86,6 +105,11 @@ public class GuiManager extends JFrame {
             listModel.addElement(process);
         }
         readyQueue.setModel(listModel);
+        panelCreateProcess.addCount();
+    }
+
+    public int getSelectItem(){
+        return Integer.parseInt(String.valueOf(this.blockedList.getSelectedValue()));
     }
 
     public void setProcessActual(String nameProcess, int timeAssign, int timeRest) {
@@ -158,8 +182,18 @@ public class GuiManager extends JFrame {
         return this.readyQueue.getFirstVisibleIndex();
     }
 
-    public void resetSpinner() {
-        this.panelCreateProcess.resetSpinner();
+
+    public void resetSpinnerUCP() {
+        this.panelAdminUCP.resetSpinnerUCP();
+    }
+
+    public void setEnablePanelCreateProcess(boolean status) {
+        this.panelCreateProcess.setEnableComponents(status);
+        this.panelCreateProcess.resetNameProcess();
+    }
+
+    public void setEnablePanelAdminUCP(boolean status) {
+        this.panelAdminUCP.setEnableComponents(status);
     }
 
     public void setEnablePanelCreateProcess(boolean status) {

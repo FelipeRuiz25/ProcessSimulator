@@ -4,6 +4,7 @@ import so.simulator.models.Process;
 import so.simulator.models.ProcessStateManager;
 import so.simulator.models.exceptions.CPUException;
 import so.simulator.views.GuiManager;
+import so.simulator.views.components.Output;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
 
@@ -36,7 +37,19 @@ public class Controller implements ActionListener, Observer {
                 break;
             case Commands.BTN_CREATE_PROCESS:
                 createProcess();
-                guiManager.resetSpinner();
+                guiManager.resetSpinnerPanelCreateProcess();
+                guiManager.setEnablePanelProcessExecution(true);
+
+                break;
+            case Commands.BTN_FINISH_UCP:
+                guiManager.setEnablePanelAdminUCP(true);
+                guiManager.setEnablePanelCreateProcess(false);
+                guiManager.setEnableLists(false);
+                guiManager.clearLists();
+                guiManager.setEnableBtnWakeProcess(false);
+                guiManager.setEnablePanelProcessExecution(false);
+                guiManager.resetSpinnerUCP();
+                Output.showInfoMessage("Simulacion finalizada.");
                 break;
             case Commands.BTN_FINISH_UCP:
                 guiManager.setEnablePanelAdminUCP(true);
