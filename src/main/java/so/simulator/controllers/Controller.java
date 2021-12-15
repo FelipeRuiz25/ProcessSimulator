@@ -70,6 +70,22 @@ public class Controller implements ActionListener, Observer {
     }
 
     private void blockProcess() {
+        //Bloquea el proceso de la UCP
+        stateManager.blockProcess();
+        try {
+            // TODO: 14/12/21 Notificar si no hay mas procesos
+            if (stateManager.hasProcessesReady()) {
+                stateManager.dispatchNextProcess();
+                Process process = stateManager.getRunningProcess();
+                guiManager.setProcessActual(
+                        process.getProcessName(),
+                        process.getSecondsOfExecution(),
+                        process.getSecondsOfExecutionRemaining());
+                updateListAndQueue();
+            }
+        } catch (CPUException e) {
+            e.printStackTrace();
+        }
     }
 
     private void nextProcess() {
