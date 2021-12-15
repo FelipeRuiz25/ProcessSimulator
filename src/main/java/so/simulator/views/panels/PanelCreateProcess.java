@@ -24,7 +24,6 @@ public class PanelCreateProcess extends JPanel {
     private void init(ActionListener listener) {
         this.labelNameProcess = new JLabel(Constants.TEXT_LABEL_NAME_PROCESS);
         this.textFieldNameProcess = new JLabel("0");
-        this.textFieldNameProcess.setEnabled(false);
         this.labelTextTimeProcess = new JLabel(Constants.TEXT_LABEL_TIME_PROCESS);
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
         spinnerNumberModel.setMinimum(1);
@@ -34,6 +33,7 @@ public class PanelCreateProcess extends JPanel {
         this.labelSeg = new JLabel(Constants.TEXT_SEG);
         this.btnCreateProcess = new MyJButton(listener, Commands.BTN_CREATE_PROCESS, Constants.TEXT_BTN_CREATE_PROCESS);
         this.setEnableComponents(false);
+        this.addToolTips();
         fill();
     }
 
@@ -53,7 +53,12 @@ public class PanelCreateProcess extends JPanel {
         add(btnCreateProcess);
     }
 
-    public void addCount(){
+    private void addToolTips() {
+        this.btnCreateProcess.setToolTipText(Constants.PRESIONE_PARA_CREAR_UN_PROCESO_CON_LOS_DATOS_INGRESADOS);
+        this.spinnerSegProcess.setToolTipText(Constants.INGRESE_EL_TIEMPO_DE_EJECUCION_DEL_PROCESO);
+    }
+
+    public void addCount() {
         this.textFieldNameProcess.setText(String.valueOf(Integer.parseInt(this.textFieldNameProcess.getText()) + 1));
     }
 

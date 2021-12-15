@@ -37,6 +37,7 @@ public class PanelProcessExecution extends JPanel {
         this.textFieldTimeAssign.setEnabled(false);
         this.btnStopProcess = new MyJButton(listener, Commands.BTN_STOP_PROCESS, "Detener");
         this.btnStopProcess.setEnabled(false);
+        addToolTips();
         this.fill();
     }
 
@@ -59,14 +60,24 @@ public class PanelProcessExecution extends JPanel {
         this.btnStopProcess.setEnabled(status);
     }
 
+    public void resetComponents(){
+        this.textFieldTimeAssign.setText("0");
+        this.textFieldTimeRest.setText("0");
+        this.textFieldNameProcess.setText("0");
+    }
+
+    private void addToolTips(){
+        this.btnStopProcess.setToolTipText(Constants.TOOL_TIP_BTN_STOP_PROCESS);
+    }
+
     private void fill() {
         this.setLayout(null);
         this.labelNameProcess.setBounds(20, 40, 120, 20);
         this.labelTimeAssign.setBounds(20, 70, 120, 20);
         this.labelTimeRest.setBounds(20, 100, 120, 20);
-        this.textFieldNameProcess.setBounds(125, 40, 120, 25);
-        this.textFieldTimeAssign.setBounds(125, 70, 120, 25);
-        this.textFieldTimeRest.setBounds(125, 100, 120, 25);
+        this.textFieldNameProcess.setBounds(170, 40, 120, 25);
+        this.textFieldTimeAssign.setBounds(170, 70, 120, 25);
+        this.textFieldTimeRest.setBounds(170, 100, 120, 25);
         this.btnStopProcess.setBounds(50, 210, 150, 40);
         add(labelNameProcess);
         add(labelTimeAssign);

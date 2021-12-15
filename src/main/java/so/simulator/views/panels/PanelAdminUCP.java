@@ -34,8 +34,14 @@ public class PanelAdminUCP extends JPanel {
         spinnerNumberModel.setValue(1);
         this.btnFinishUCP.setEnabled(false);
         this.textTimeRest = new JLabel();
-        textTimeRest.setEnabled(false);
+        addToolTips();
         fill();
+    }
+
+    private void addToolTips(){
+        this.spinnerTimeAssign.setToolTipText("Ingrese el tiempo que desee que la UCP atienda a cada proceso");
+        this.btnFinishUCP.setToolTipText("Presione si desea detener la simulacion");
+        this.btnStartUCP.setToolTipText("Presione si desea iniciar la simulacion");
     }
 
     private void fill() {
@@ -72,8 +78,9 @@ public class PanelAdminUCP extends JPanel {
         return Integer.parseInt(this.textTimeRest.getText());
     }
 
-    public void resetSpinnerUCP() {
+    public void resetComponentsUCP() {
         this.spinnerTimeAssign.setValue(1);
+        this.textTimeRest.setText("");
     }
 
     public void setEnableComponents(boolean status){
