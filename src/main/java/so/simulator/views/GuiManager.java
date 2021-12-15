@@ -1,6 +1,5 @@
 package so.simulator.views;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import so.simulator.controllers.Commands;
 import so.simulator.views.components.ModifiedFlowLayout;
@@ -46,9 +45,23 @@ public class GuiManager extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
+        this.btnWakeProcess.setEnabled(false);
+        this.setEnableLists(false);
         this.fill();
+
         setVisible(true);
     }
+
+    public void setEnableBtnWakeProcess(boolean status){
+        this.btnWakeProcess.setEnabled(status);
+    }
+
+    public void clearList(){
+        DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
+        this.readyQueue.setModel(listModelEmpty);
+        this.blockedList.setModel(listModelEmpty);
+    }
+
 
     public void setTimeAssignUCP(int time) {
 //        this.panelAdminUCP.setTimeAssignUCP(time);
@@ -115,11 +128,15 @@ public class GuiManager extends JFrame {
         this.btnWakeProcess.setBounds(580, 550, 140, 30);
         add(panelAdminUCP);
         add(panelCreateProcess);
-        //add(blockedList);
         add(labelReadyQueue);
         add(labelBlockedList);
         add(panelProcessExecution);
         add(btnWakeProcess);
+    }
+
+    public void setEnableLists(boolean status){
+        this.readyQueue.setEnabled(status);
+        this.blockedList.setEnabled(status);
     }
 
     public int getTimeAssignUCP() {
@@ -130,7 +147,26 @@ public class GuiManager extends JFrame {
         return this.panelAdminUCP.getTimeRestUCP();
     }
 
+    public void clearLists(){
+        DefaultListModel listModelEmpty = new DefaultListModel();
+        this.readyQueue.setModel(listModelEmpty);
+        this.blockedList.setModel(listModelEmpty);
+        this.setEnableLists(false);
+    }
+
+    public int getFirstProcess(){
+        return this.readyQueue.getFirstVisibleIndex();
+    }
+
     public void resetSpinner() {
         this.panelCreateProcess.resetSpinner();
+    }
+
+    public void setEnablePanelCreateProcess(boolean status) {
+        this.panelCreateProcess.setEnableComponents(status);
+    }
+
+    public void setEnablePanelAdminUCP(boolean status) {
+        this.panelAdminUCP.setEnableComponents(status);
     }
 }

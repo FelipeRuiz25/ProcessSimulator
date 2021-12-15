@@ -34,6 +34,7 @@ public class PanelCreateProcess extends JPanel {
         spinnerSegProcess.setValue(1);
         this.labelSeg = new JLabel(Constants.TEXT_SEG);
         this.btnCreateProcess = new MyJButton(listener, Commands.BTN_CREATE_PROCESS, Constants.TEXT_BTN_CREATE_PROCESS);
+        this.setEnableComponents(false);
         fill();
     }
 
@@ -51,6 +52,12 @@ public class PanelCreateProcess extends JPanel {
         add(spinnerSegProcess);
         add(labelSeg);
         add(btnCreateProcess);
+    }
+
+    public void setEnableComponents(boolean status) {
+        this.setEnabled(status);
+        this.spinnerSegProcess.setEnabled(status);
+        this.btnCreateProcess.setEnabled(status);
     }
 
     public int getNameProcess() {

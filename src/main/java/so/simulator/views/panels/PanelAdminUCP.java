@@ -32,10 +32,17 @@ public class PanelAdminUCP extends JPanel {
         spinnerNumberModel.setMaximum(300);
         this.spinnerTimeAssign = new JSpinner(spinnerNumberModel);
         spinnerNumberModel.setValue(1);
-
+        this.btnFinishUCP.setEnabled(false);
         this.textTimeRest = new JTextField();
         textTimeRest.setEnabled(false);
         fill();
+    }
+
+    public void setEnableComponents(boolean status){
+        this.spinnerTimeAssign.setEnabled(status);
+        this.btnFinishUCP.setEnabled(!status);
+        this.setEnabled(status);
+        this.btnStartUCP.setEnabled(status);
     }
 
     private void fill() {

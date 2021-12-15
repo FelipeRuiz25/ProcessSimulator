@@ -26,13 +26,24 @@ public class Controller implements ActionListener, Observer {
         switch (e.getActionCommand()) {
             case Commands.BTN_STAR_UCP:
                 int timeAssign = guiManager.getTimeAssignUCP();
+                guiManager.setEnableLists(true);
+                guiManager.setEnablePanelAdminUCP(false);
+                guiManager.setEnableLists(true);
+                guiManager.setEnablePanelCreateProcess(true);
+                guiManager.setEnableBtnWakeProcess(true);
                 System.out.println(timeAssign);
                 break;
             case Commands.BTN_CREATE_PROCESS:
                 createProcess();
                 guiManager.resetSpinner();
                 break;
-
+            case Commands.BTN_FINISH_UCP:
+                guiManager.setEnablePanelAdminUCP(true);
+                guiManager.setEnablePanelCreateProcess(false);
+                guiManager.setEnableLists(false);
+                guiManager.clearLists();
+                guiManager.setEnableBtnWakeProcess(false);
+                break;
         }
     }
 

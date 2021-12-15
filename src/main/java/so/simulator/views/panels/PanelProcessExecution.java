@@ -37,9 +37,14 @@ public class PanelProcessExecution extends JPanel {
         this.textFieldNameProcess.setEnabled(false);
         this.textFieldTimeAssign.setEnabled(false);
         this.btnStopProcess = new MyJButton(listener, Commands.BTN_STOP_PROCESS, "Detener");
+        this.btnStopProcess.setEnabled(false);
         this.fill();
     }
 
+    public void setEnableBtnStopProcess(boolean status){
+        this.btnStopProcess.setEnabled(status);
+    }
+    
     public void setProcessActual(String nameProcessActual, int timeAssign, int timeRest) {
         this.textFieldNameProcess.setText(nameProcessActual);
         this.textFieldTimeAssign.setText(String.valueOf(timeAssign));
