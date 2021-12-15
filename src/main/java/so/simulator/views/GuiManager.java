@@ -32,8 +32,8 @@ public class GuiManager extends JFrame {
         this.panelAdminUCP = new PanelAdminUCP(listener);
         this.panelCreateProcess = new PanelCreateProcess(listener);
         this.panelProcessExecution = new PanelProcessExecution(listener);
-        this.readyQueue = new JList();
         this.blockedList = new JList();
+        this.readyQueue = new JList();
         this.labelBlockedList = new JLabel("Procesos bloqueados: ");
         this.labelReadyQueue = new JLabel("Procesos listos: ");
         this.btnWakeProcess = new MyJButton(listener, Commands.BTN_WAKE_PROCESS, "Despertar");
@@ -52,6 +52,10 @@ public class GuiManager extends JFrame {
         setVisible(true);
     }
 
+    public void resetSpinnerPanelCreateProcess(){
+        this.panelCreateProcess.resetSpinner();
+    }
+
     public void setEnableBtnWakeProcess(boolean status){
         this.btnWakeProcess.setEnabled(status);
     }
@@ -62,6 +66,9 @@ public class GuiManager extends JFrame {
         this.blockedList.setModel(listModelEmpty);
     }
 
+    public void setEnablePanelProcessExecution(boolean status){
+        this.panelProcessExecution.setEnableComponents(status);
+    }
 
     public void setTimeAssignUCP(int time) {
 //        this.panelAdminUCP.setTimeAssignUCP(time);
@@ -86,6 +93,11 @@ public class GuiManager extends JFrame {
             listModel.addElement(process);
         }
         readyQueue.setModel(listModel);
+        panelCreateProcess.addCount();
+    }
+
+    public int getSelectItem(){
+        return Integer.parseInt(String.valueOf(this.blockedList.getSelectedValue()));
     }
 
     public void setProcessActual(String nameProcess, int timeAssign, int timeRest) {
@@ -158,12 +170,14 @@ public class GuiManager extends JFrame {
         return this.readyQueue.getFirstVisibleIndex();
     }
 
-    public void resetSpinner() {
-        this.panelCreateProcess.resetSpinner();
+
+    public void resetSpinnerUCP() {
+        this.panelAdminUCP.resetSpinnerUCP();
     }
 
     public void setEnablePanelCreateProcess(boolean status) {
         this.panelCreateProcess.setEnableComponents(status);
+        this.panelCreateProcess.resetNameProcess();
     }
 
     public void setEnablePanelAdminUCP(boolean status) {

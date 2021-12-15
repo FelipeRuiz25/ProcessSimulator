@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="transiciones vista">
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="transiciones vista de nuevo">
+      <change afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/components/Output.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
@@ -13,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" afterDir="false" />
@@ -65,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/flatlaf-0.38.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/so/simulator/views/components" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -77,6 +77,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Michael\IdeaProjects\ProcessSimulator\src\main\java\so\simulator\views\components" />
       <recent name="$PROJECT_DIR$/src/main/java/so/util/queue" />
     </key>
   </component>
@@ -207,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639528598790</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="transiciones vista de nuevo">
+      <created>1639530474595</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1639530474595</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +244,8 @@
     <MESSAGE value="Controller metodo update actualizado" />
     <MESSAGE value="Tema actualizado" />
     <MESSAGE value="transiciones vista" />
-    <option name="LAST_COMMIT_MESSAGE" value="transiciones vista" />
+    <MESSAGE value="transiciones vista de nuevo" />
+    <option name="LAST_COMMIT_MESSAGE" value="transiciones vista de nuevo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

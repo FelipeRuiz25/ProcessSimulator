@@ -14,7 +14,7 @@ public class PanelAdminUCP extends JPanel {
     private JLabel timeRest;
     private JLabel timeAssign;
     private JSpinner spinnerTimeAssign;
-    private JTextField textTimeRest;
+    private JLabel textTimeRest;
     private JLabel textSegTimeAssign;
     private JLabel textSegTimeRest;
 
@@ -33,7 +33,7 @@ public class PanelAdminUCP extends JPanel {
         this.spinnerTimeAssign = new JSpinner(spinnerNumberModel);
         spinnerNumberModel.setValue(1);
         this.btnFinishUCP.setEnabled(false);
-        this.textTimeRest = new JTextField();
+        this.textTimeRest = new JLabel();
         textTimeRest.setEnabled(false);
         fill();
     }
@@ -45,13 +45,17 @@ public class PanelAdminUCP extends JPanel {
         this.btnStartUCP.setEnabled(status);
     }
 
+    public void resetSpinnerUCP() {
+        this.spinnerTimeAssign.setValue(1);
+    }
+
     private void fill() {
         this.setLayout(null);
-        this.btnStartUCP.setBounds(240, 15, 100, 30);
-        this.btnFinishUCP.setBounds(240, 50, 100, 30);
+        this.btnStartUCP.setBounds(250, 15, 100, 35);
+        this.btnFinishUCP.setBounds(250, 50, 100, 35);
         this.timeAssign.setBounds(10, 20, 110, 20);
         this.timeRest.setBounds(10, 50, 110, 20);
-        this.spinnerTimeAssign.setBounds(120, 20, 90, 30);
+        this.spinnerTimeAssign.setBounds(115, 15, 90, 30);
         this.textTimeRest.setBounds(120, 50, 90, 30);
         this.textSegTimeAssign.setBounds(210, 20, 30, 20);
         this.textSegTimeRest.setBounds(210, 50, 30, 20);

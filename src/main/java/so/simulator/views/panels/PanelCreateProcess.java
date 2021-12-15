@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class PanelCreateProcess extends JPanel {
 
     private JLabel labelNameProcess;
-    private JTextField textFieldNameProcess;
+    private JLabel textFieldNameProcess;
     private JLabel labelTextTimeProcess;
     private JSpinner spinnerSegProcess;
     private JLabel labelSeg;
@@ -19,12 +19,11 @@ public class PanelCreateProcess extends JPanel {
     public PanelCreateProcess(ActionListener listener) {
         setBorder(BorderFactory.createTitledBorder(Constants.TITTLE_PANEL_CREATION_PROCESS));
         init(listener);
-
     }
 
     private void init(ActionListener listener) {
         this.labelNameProcess = new JLabel(Constants.TEXT_LABEL_NAME_PROCESS);
-        this.textFieldNameProcess = new JTextField();
+        this.textFieldNameProcess = new JLabel("0");
         this.textFieldNameProcess.setEnabled(false);
         this.labelTextTimeProcess = new JLabel(Constants.TEXT_LABEL_TIME_PROCESS);
         SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
@@ -41,10 +40,10 @@ public class PanelCreateProcess extends JPanel {
     private void fill() {
         this.setLayout(null);
         this.labelNameProcess.setBounds(20, 20, 60, 20);
-        this.textFieldNameProcess.setBounds(80, 20, 90, 30);
+        this.textFieldNameProcess.setBounds(80, 15, 90, 30);
         this.labelTextTimeProcess.setBounds(20, 50, 60, 20);
-        this.spinnerSegProcess.setBounds(80, 50, 90, 30);
-        this.labelSeg.setBounds(175, 55, 60, 20);
+        this.spinnerSegProcess.setBounds(75, 45, 90, 30);
+        this.labelSeg.setBounds(170, 50, 60, 20);
         this.btnCreateProcess.setBounds(210, 20, 130, 60);
         add(labelNameProcess);
         add(textFieldNameProcess);
@@ -52,6 +51,10 @@ public class PanelCreateProcess extends JPanel {
         add(spinnerSegProcess);
         add(labelSeg);
         add(btnCreateProcess);
+    }
+
+    public void addCount(){
+        this.textFieldNameProcess.setText(String.valueOf(Integer.parseInt(this.textFieldNameProcess.getText()) + 1));
     }
 
     public void setEnableComponents(boolean status) {
@@ -70,5 +73,9 @@ public class PanelCreateProcess extends JPanel {
 
     public void resetSpinner() {
         this.spinnerSegProcess.setValue(1);
+    }
+
+    public void resetNameProcess() {
+        this.textFieldNameProcess.setText(String.valueOf(0));
     }
 }
