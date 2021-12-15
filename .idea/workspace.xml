@@ -7,19 +7,16 @@
     <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Version &quot;Estable&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/util/observer/ObserverEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/util/observer/ObserverEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelAdminUCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelAdminUCP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/observer/ObserverEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/observer/ObserverEvent.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner" />

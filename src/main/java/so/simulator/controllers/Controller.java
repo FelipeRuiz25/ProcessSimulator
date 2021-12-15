@@ -49,14 +49,10 @@ public class Controller implements ActionListener, Observer {
                 guiManager.setEnableBtnWakeProcess(false);
                 guiManager.setEnablePanelProcessExecution(false);
                 guiManager.resetSpinnerUCP();
+                //Crea una nueva simulacion
+                stateManager = new ProcessStateManager(this);
+                Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
-                break;
-            case Commands.BTN_FINISH_UCP:
-                guiManager.setEnablePanelAdminUCP(true);
-                guiManager.setEnablePanelCreateProcess(false);
-                guiManager.setEnableLists(false);
-                guiManager.clearLists();
-                guiManager.setEnableBtnWakeProcess(false);
                 break;
             case Commands.BTN_WAKE_PROCESS:
                 wakeProcess();
@@ -113,10 +109,11 @@ public class Controller implements ActionListener, Observer {
         //Bloquea el proceso de la UCP
         stateManager.blockProcess();
         try {
-            // TODO: 14/12/21 Notificar si no hay mas procesos
             if (stateManager.hasProcessesReady()) {
                 stateManager.dispatchNextProcess();
                 updateProcessView();
+            }else {
+                // TODO: 14/12/21 Notificar si no hay mas procesos
             }
         } catch (CPUException e) {
             e.printStackTrace();

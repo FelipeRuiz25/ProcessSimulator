@@ -60,10 +60,6 @@ public class PanelAdminUCP extends JPanel {
         add(textTimeRest);
     }
 
-    public void setTimeAssignUCP(int time) {
-//        this.spinnerTimeAssign.setText(String.valueOf(time));
-    }
-
     public void setTimeRestUCP(int time) {
         this.textTimeRest.setText(String.valueOf(time));
     }
@@ -74,5 +70,16 @@ public class PanelAdminUCP extends JPanel {
 
     public int getTimeRestUCP() {
         return Integer.parseInt(this.textTimeRest.getText());
+    }
+
+    public void resetSpinnerUCP() {
+        this.spinnerTimeAssign.setValue(1);
+    }
+
+    public void setEnableComponents(boolean status){
+        this.spinnerTimeAssign.setEnabled(status);
+        this.btnFinishUCP.setEnabled(!status);
+        this.setEnabled(status);
+        this.btnStartUCP.setEnabled(status);
     }
 }

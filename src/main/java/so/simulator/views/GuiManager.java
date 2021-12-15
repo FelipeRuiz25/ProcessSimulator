@@ -59,28 +59,15 @@ public class GuiManager extends JFrame {
         this.btnWakeProcess.setEnabled(status);
     }
 
-    public void clearList(){
-        DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
-        this.readyQueue.setModel(listModelEmpty);
-        this.blockedList.setModel(listModelEmpty);
-    }
-
     public void setEnablePanelProcessExecution(boolean status){
         this.panelProcessExecution.setEnableComponents(status);
     }
 
-    public void setTimeAssignUCP(int time) {
-//        this.panelAdminUCP.setTimeAssignUCP(time);
-    public void setEnableBtnWakeProcess(boolean status){
-        this.btnWakeProcess.setEnabled(status);
-    }
-
     public void clearList(){
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
     }
-
 
     public void setTimeRestProcess(int time) {
         this.panelProcessExecution.setTimeRest(time);
@@ -187,20 +174,12 @@ public class GuiManager extends JFrame {
         this.panelAdminUCP.resetSpinnerUCP();
     }
 
+    public void setEnablePanelAdminUCP(boolean status) {
+        this.panelAdminUCP.setEnableComponents(status);
+    }
+
     public void setEnablePanelCreateProcess(boolean status) {
         this.panelCreateProcess.setEnableComponents(status);
         this.panelCreateProcess.resetNameProcess();
-    }
-
-    public void setEnablePanelAdminUCP(boolean status) {
-        this.panelAdminUCP.setEnableComponents(status);
-    }
-
-    public void setEnablePanelCreateProcess(boolean status) {
-        this.panelCreateProcess.setEnableComponents(status);
-    }
-
-    public void setEnablePanelAdminUCP(boolean status) {
-        this.panelAdminUCP.setEnableComponents(status);
     }
 }

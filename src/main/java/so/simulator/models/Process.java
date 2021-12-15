@@ -52,4 +52,8 @@ public class Process {
     public int getSecondsOfExecutionRemaining() {
         return secondsOfExecutionRemaining;
     }
+
+    public static void resetSequential(){
+        sequential = 0;
+    }
 }
