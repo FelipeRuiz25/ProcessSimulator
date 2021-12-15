@@ -98,7 +98,6 @@ public class GuiManager extends JFrame {
             listModel.addElement(process);
         }
         readyQueue.setModel(listModel);
-        panelCreateProcess.addCount();
     }
 
     public String getSelectItem(){

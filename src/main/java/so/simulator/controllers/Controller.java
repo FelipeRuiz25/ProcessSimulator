@@ -34,7 +34,6 @@ public class Controller implements ActionListener, Observer {
                 guiManager.setEnableLists(true);
                 guiManager.setEnablePanelCreateProcess(true);
                 guiManager.setEnableBtnWakeProcess(true);
-                System.out.println(timeAssign);
                 break;
             case Commands.BTN_CREATE_PROCESS:
                 createProcess();
@@ -43,19 +42,18 @@ public class Controller implements ActionListener, Observer {
                 guiManager.sumCountName();
                 break;
             case Commands.BTN_FINISH_UCP:
-                guiManager.setEnablePanelAdminUCP(true);
-                guiManager.setEnablePanelCreateProcess(false);
-                guiManager.setEnableLists(false);
-                guiManager.clearLists();
-                guiManager.setEnableBtnWakeProcess(false);
-                guiManager.setEnablePanelProcessExecution(false);
-                guiManager.resetSpinnerUCP();
-                //Crea una nueva simulacion
                 stateManager.blockActualProcess();
-                guiManager.resetComponentsPanelCurrentProcess();
                 Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
                 stateManager = new ProcessStateManager(this);
+                guiManager.setEnablePanelAdminUCP(true);
+                guiManager.setEnablePanelCreateProcess(false);
+                guiManager.setEnableLists(false);
+                guiManager.setEnableBtnWakeProcess(false);
+                guiManager.setEnablePanelProcessExecution(false);
+                guiManager.resetSpinnerUCP();
+                guiManager.resetComponentsPanelCurrentProcess();
+                guiManager.clearLists();
                 break;
             case Commands.BTN_WAKE_PROCESS:
                 wakeProcess();
@@ -68,11 +66,11 @@ public class Controller implements ActionListener, Observer {
 
     private void wakeProcess() {
         String selected = guiManager.getSelectItem();
-        System.out.println("Seleccionado: " + selected);
         stateManager.wakeUpProcess(selected);
         if (stateManager.hasCPUAvailable()) {
             try {
                 stateManager.dispatchNextProcess();
+                updateProcessView();
             } catch (CPUException e) {
                 e.printStackTrace();
             }
@@ -158,7 +156,7 @@ public class Controller implements ActionListener, Observer {
                     process.getSecondsOfExecution(),
                     process.getSecondsOfExecutionRemaining()
             );
-            updateListAndQueue();
+            guiManager.updateReadyQueue(stateManager.getReadyQueue());
         } catch (CPUException e) {
             e.printStackTrace();
         }
