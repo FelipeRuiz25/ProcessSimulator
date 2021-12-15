@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="transiciones vista">
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="prueba">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelAdminUCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelAdminUCP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelCreateProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelCreateProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelProcessExecution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +101,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner" />
         <item itemvalue="Application.Runner" />
       </list>
@@ -223,7 +218,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="clase Proccess creada :3" />
@@ -235,8 +229,19 @@
     <MESSAGE value="documentación de código" />
     <MESSAGE value="Controller metodo update actualizado" />
     <MESSAGE value="Tema actualizado" />
+    <MESSAGE value="prueba" />
     <MESSAGE value="transiciones vista" />
     <option name="LAST_COMMIT_MESSAGE" value="transiciones vista" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalThreadStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

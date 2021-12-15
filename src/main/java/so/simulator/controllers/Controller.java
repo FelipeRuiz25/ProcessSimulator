@@ -26,6 +26,7 @@ public class Controller implements ActionListener, Observer {
         switch (e.getActionCommand()) {
             case Commands.BTN_STAR_UCP:
                 int timeAssign = guiManager.getTimeAssignUCP();
+                stateManager.setCpuExecuteTime(timeAssign);
                 guiManager.setEnableLists(true);
                 guiManager.setEnablePanelAdminUCP(false);
                 guiManager.setEnableLists(true);
@@ -49,9 +50,17 @@ public class Controller implements ActionListener, Observer {
 
     private void createProcess() {
         int time = guiManager.getTimeNewProcess();
-        stateManager.addProcess(time);
+        if (!stateManager.hasProcessesReady()){
+            try {
+                stateManager.addProcess(time);
+                stateManager.dispatchNextProcess();
+            } catch (CPUException e) {
+                e.printStackTrace();
+            }
+        }else {
+            stateManager.addProcess(time);
+        }
         guiManager.updateReadyQueue(stateManager.getReadyQueue());
-        return;
     }
 
     @Override
@@ -92,11 +101,11 @@ public class Controller implements ActionListener, Observer {
                         process.getProcessName(),
                         process.getSecondsOfExecution(),
                         process.getSecondsOfExecutionRemaining());
-                updateListAndQueue();
             }
         } catch (CPUException e) {
             e.printStackTrace();
         }
+        updateListAndQueue();
     }
 
     private void nextProcess() {

@@ -35,6 +35,7 @@ public class CPU extends Thread {
 
     @Override
     public void run() {
+        System.out.println("Proceso ejecutandose: " + processRunning.getProcessName());
         try {
             while (processRunning.isAlive() && hasTime()) {
                 //Resta el tiempo de ejecución para el proceso actual
@@ -53,6 +54,11 @@ public class CPU extends Thread {
             observable.notify(ObserverEvent.TIME_EXPIRATION);
         }else {
             observable.notify(ObserverEvent.BLOCK);
+        }
+        try {
+            this.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
