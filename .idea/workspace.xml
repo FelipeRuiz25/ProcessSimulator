@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="60612eaf-c4b1-4d05-8811-5ecfb9eb05b3" name="Changes" comment="Tema actualizado">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_11_34_a__m__[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_6_19_p__m__[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_6_45_p__m__[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__11_34_a__m___Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__6_19_p__m___Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__6_45_p__m___Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/ProcessSimulator-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Commands.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/CPUException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/ErrorCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/runner/Runner.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/components/ModifiedFlowLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/components/MyJButton.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/observer/Observable.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/observer/Observer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/observer/ObserverEvent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/queue/ListIterator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/queue/Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/so/util/queue/Queue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessStateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Ruiz" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="22F4Y3ZK6T4Vi9pYrtQw83sUo5V" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/flatlaf-0.38.jar" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="Template Data Languages" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/so/util/queue" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="so.simulator.runner.Runner" />
+      <module name="ProcessSimulator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="so.simulator.runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.Runner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="60612eaf-c4b1-4d05-8811-5ecfb9eb05b3" name="Changes" comment="" />
+      <created>1639420046801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639420046801</updated>
+      <workItem from="1639420049015" duration="21185000" />
+      <workItem from="1639497543325" duration="194000" />
+      <workItem from="1639497746847" duration="3204000" />
+      <workItem from="1639501199534" duration="2482000" />
+      <workItem from="1639503730056" duration="2951000" />
+      <workItem from="1639520167564" duration="1016000" />
+      <workItem from="1639521801981" duration="654000" />
+      <workItem from="1639522465659" duration="746000" />
+      <workItem from="1639523442831" duration="4724000" />
+    </task>
+    <task id="LOCAL-00001" summary="clase Proccess creada :3">
+      <created>1639453876371</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1639453876371</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implementado patron observador&#10;creación de las clase CPU">
+      <created>1639459858095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1639459858095</updated>
+    </task>
+    <task id="LOCAL-00003" summary="implementado patron observador&#10;creación de las clase CPU">
+      <created>1639463203659</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1639463203659</updated>
+    </task>
+    <task id="LOCAL-00004" summary="clases añadidas">
+      <created>1639491488297</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1639491488297</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ProcessExecutor cambio a CPU&#10;CPU cambio a ProcessStateManager">
+      <created>1639493431598</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1639493431598</updated>
+    </task>
+    <task id="LOCAL-00006" summary="themes agregados">
+      <created>1639500278341</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1639500278341</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xd">
+      <created>1639503788062</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1639503788062</updated>
+    </task>
+    <task id="LOCAL-00008" summary="documentación de código">
+      <created>1639504776695</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1639504776695</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Controller metodo update actualizado">
+      <created>1639520515755</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1639520515755</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Tema actualizado">
+      <created>1639524382003</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1639524382003</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="clase Proccess creada :3" />
+    <MESSAGE value="implementado patron observador&#10;creación de las clase CPU" />
+    <MESSAGE value="clases añadidas" />
+    <MESSAGE value="ProcessExecutor cambio a CPU&#10;CPU cambio a ProcessStateManager" />
+    <MESSAGE value="themes agregados" />
+    <MESSAGE value="xd" />
+    <MESSAGE value="documentación de código" />
+    <MESSAGE value="Controller metodo update actualizado" />
+    <MESSAGE value="Tema actualizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tema actualizado" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

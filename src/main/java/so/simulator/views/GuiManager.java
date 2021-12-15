@@ -1,5 +1,6 @@
 package so.simulator.views;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import so.simulator.controllers.Commands;
 import so.simulator.views.components.ModifiedFlowLayout;

@@ -68,10 +68,11 @@ public class ProcessStateManager {
      * @throws CPUException si no hay procesos en la linea de espera
      * @see ErrorCode codigo específico de la excepcion
      */
-    public void dispatchProcess() throws CPUException {
+    public Process dispatchNextProcess() throws CPUException {
         Process process = readyQueue.poll();
         if (process == null) throw new CPUException(ErrorCode.NO_PROCESS_READY);
         cpu.runProcess(process);
+        return process;
     }
 
     /**
@@ -97,6 +98,18 @@ public class ProcessStateManager {
             process.wakeUp();
             readyQueue.push(process);
         }
+    }
+
+    /**
+     * Envia el proceso en ejecucion a la lista de espera
+     * y le asigna la cpu al siguiente proceso en la cola
+     * @throws CPUException si no hay mas procesos a ejecutar
+     * @return El nuevo proceso en ejecucion
+     */
+    public Process finishProcessTurn() throws CPUException {
+        Process process = cpu.reset();
+        readyQueue.push(process);
+        return dispatchNextProcess();
     }
 
     /**
@@ -130,5 +143,9 @@ public class ProcessStateManager {
      */
     public int getProcessTimeRemaining() {
         return cpu.getProcessRunning().getSecondsOfExecutionRemaining();
+    }
+
+    public Process getRunningProcess(){
+        return cpu.getProcessRunning();
     }
 }

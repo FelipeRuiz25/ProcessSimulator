@@ -1,5 +1,6 @@
 package so.simulator.controllers;
 
+import so.simulator.models.Process;
 import so.simulator.models.ProcessStateManager;
 import so.simulator.models.exceptions.CPUException;
 import so.simulator.views.GuiManager;
@@ -53,7 +54,7 @@ public class Controller implements ActionListener, Observer {
                 blockProcess();
                 break;
             case TIME_EXPIRATION:
-
+                nextProcess();
                 break;
         }
     }
@@ -69,14 +70,39 @@ public class Controller implements ActionListener, Observer {
     }
 
     private void blockProcess() {
-        //Bloque el proceso de la UCP
+        //Bloquea el proceso de la UCP
         stateManager.blockProcess();
         try {
-            stateManager.dispatchProcess();
-            // TODO: 14/12/21 actualizar cola en la vista
+            // TODO: 14/12/21 Notificar si no hay mas procesos
+            if (stateManager.hasProcessesReady()) {
+                stateManager.dispatchNextProcess();
+                Process process = stateManager.getRunningProcess();
+                guiManager.setProcessActual(
+                        process.getProcessName(),
+                        process.getSecondsOfExecution(),
+                        process.getSecondsOfExecutionRemaining());
+                updateListAndQueue();
+            }
         } catch (CPUException e) {
             e.printStackTrace();
         }
-        throw new UnsupportedOperationException("Toca actualizar la pinshi cola en la vista >:");
+    }
+
+    private void nextProcess() {
+        try {
+            Process process = stateManager.finishProcessTurn();
+            guiManager.setProcessActual(
+                    process.getProcessName(),
+                    process.getSecondsOfExecution(),
+                    process.getSecondsOfExecutionRemaining()
+            );
+        } catch (CPUException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void updateListAndQueue() {
+        guiManager.updateBlockedList(stateManager.getBlockedList());
+        guiManager.updateReadyQueue(stateManager.getReadyQueue());
     }
 }
