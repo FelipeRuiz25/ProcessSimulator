@@ -4,8 +4,10 @@ import java.awt.*;
 
 public interface Constants {
 
-    String tittle = "Simulador: Transiciones de procesos";
+    String ICON_PATH = "src/main/resources/SimulatorIcon.png";
+    String TITTLE = "Simulador: Transiciones de procesos";
     Dimension SIZE = new Dimension(800, 640);
+
     String TITTLE_PANEL_ADMIN_UCP = " Administracion UCP ";
     String TITTLE_PANEL_CREATION_PROCESS = " Creacion de proceso ";
     String TEXT_LABEL_TIME_ASSIGN = "Tiempo asignado: ";

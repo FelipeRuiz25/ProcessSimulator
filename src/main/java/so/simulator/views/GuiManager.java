@@ -27,7 +27,8 @@ public class GuiManager extends JFrame {
     private MyJButton btnWakeProcess;
 
     public GuiManager(ActionListener listener) {
-        super(Constants.tittle);
+        super(Constants.TITTLE);
+        setIconImage(new ImageIcon(Constants.ICON_PATH).getImage());
         FlatCyanLightIJTheme.setup();
         this.listener = listener;
         this.panelAdminUCP = new PanelAdminUCP(listener);
