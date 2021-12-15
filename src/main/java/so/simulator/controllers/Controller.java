@@ -39,7 +39,7 @@ public class Controller implements ActionListener, Observer {
                 createProcess();
                 guiManager.resetSpinnerPanelCreateProcess();
                 guiManager.setEnablePanelProcessExecution(true);
-
+                guiManager.sumCountName();
                 break;
             case Commands.BTN_FINISH_UCP:
                 guiManager.setEnablePanelAdminUCP(true);

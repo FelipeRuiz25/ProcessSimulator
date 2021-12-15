@@ -51,19 +51,19 @@ public class GuiManager extends JFrame {
         setVisible(true);
     }
 
-    public void resetSpinnerPanelCreateProcess(){
+    public void resetSpinnerPanelCreateProcess() {
         this.panelCreateProcess.resetSpinner();
     }
 
-    public void setEnableBtnWakeProcess(boolean status){
+    public void setEnableBtnWakeProcess(boolean status) {
         this.btnWakeProcess.setEnabled(status);
     }
 
-    public void setEnablePanelProcessExecution(boolean status){
+    public void setEnablePanelProcessExecution(boolean status) {
         this.panelProcessExecution.setEnableComponents(status);
     }
 
-    public void clearList(){
+    public void clearList() {
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
@@ -92,10 +92,13 @@ public class GuiManager extends JFrame {
             listModel.addElement(process);
         }
         readyQueue.setModel(listModel);
+    }
+
+    public void sumCountName() {
         panelCreateProcess.addCount();
     }
 
-    public int getSelectItem(){
+    public int getSelectItem() {
         return Integer.parseInt(String.valueOf(this.blockedList.getSelectedValue()));
     }
 
@@ -145,7 +148,7 @@ public class GuiManager extends JFrame {
         add(btnWakeProcess);
     }
 
-    public void setEnableLists(boolean status){
+    public void setEnableLists(boolean status) {
         this.readyQueue.setEnabled(status);
         this.blockedList.setEnabled(status);
     }
@@ -158,14 +161,14 @@ public class GuiManager extends JFrame {
         return this.panelAdminUCP.getTimeRestUCP();
     }
 
-    public void clearLists(){
+    public void clearLists() {
         DefaultListModel listModelEmpty = new DefaultListModel();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
         this.setEnableLists(false);
     }
 
-    public int getFirstProcess(){
+    public int getFirstProcess() {
         return this.readyQueue.getFirstVisibleIndex();
     }
 
