@@ -60,7 +60,19 @@ public class Controller implements ActionListener, Observer {
         }
     }
 
-    private void wakeProcess() {}
+    private void wakeProcess() {
+        String selected = guiManager.getSelectItem();
+        System.out.println("Seleccionado: " + selected);
+        stateManager.wakeUpProcess(selected);
+        updateListAndQueue();
+        if (stateManager.hasCPUAvailable()) {
+            try {
+                stateManager.dispatchNextProcess();
+            } catch (CPUException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     private void createProcess() {
         int time = guiManager.getTimeNewProcess();

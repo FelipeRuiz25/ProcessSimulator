@@ -95,8 +95,8 @@ public class GuiManager extends JFrame {
         panelCreateProcess.addCount();
     }
 
-    public int getSelectItem(){
-        return Integer.parseInt(String.valueOf(this.blockedList.getSelectedValue()));
+    public String getSelectItem(){
+        return this.blockedList.getSelectedValue();
     }
 
     public void setProcessActual(String nameProcess, int timeAssign, int timeRest) {
