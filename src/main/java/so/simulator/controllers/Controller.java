@@ -3,6 +3,7 @@ package so.simulator.controllers;
 import so.simulator.models.Process;
 import so.simulator.models.ProcessStateManager;
 import so.simulator.models.exceptions.CPUException;
+import so.simulator.views.Constants;
 import so.simulator.views.GuiManager;
 import so.simulator.views.components.Output;
 import so.util.observer.Observer;
@@ -51,6 +52,7 @@ public class Controller implements ActionListener, Observer {
                 guiManager.resetSpinnerUCP();
                 //Crea una nueva simulacion
                 stateManager = new ProcessStateManager(this);
+                guiManager.resetComponentsPanelCurrentProcess();
                 Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
                 break;
@@ -60,18 +62,19 @@ public class Controller implements ActionListener, Observer {
         }
     }
 
-    private void wakeProcess() {}
+    private void wakeProcess() {
+    }
 
     private void createProcess() {
         int time = guiManager.getTimeNewProcess();
-        if (stateManager.hasCPUAvailable()){
+        if (stateManager.hasCPUAvailable()) {
             try {
                 stateManager.addProcess(time);
                 stateManager.dispatchNextProcess();
             } catch (CPUException e) {
                 e.printStackTrace();
             }
-        }else {
+        } else {
             stateManager.addProcess(time);
         }
         guiManager.updateReadyQueue(stateManager.getReadyQueue());
@@ -112,8 +115,9 @@ public class Controller implements ActionListener, Observer {
             if (stateManager.hasProcessesReady()) {
                 stateManager.dispatchNextProcess();
                 updateProcessView();
-            }else {
-                // TODO: 14/12/21 Notificar si no hay mas procesos
+            } else {
+                guiManager.resetComponentsPanelCurrentProcess();
+                Output.showInfoMessage(Constants.NO_HAY_MAS_PROCESOS_POR_EJECUTAR);
             }
         } catch (CPUException e) {
             e.printStackTrace();

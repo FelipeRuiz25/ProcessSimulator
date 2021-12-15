@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class GuiManager extends JFrame {
 
+
     private ActionListener listener;
     private PanelAdminUCP panelAdminUCP;
     private PanelCreateProcess panelCreateProcess;
@@ -48,6 +49,7 @@ public class GuiManager extends JFrame {
         this.btnWakeProcess.setEnabled(false);
         this.setEnableLists(false);
         this.fill();
+        addToolTips();
         setVisible(true);
     }
 
@@ -136,7 +138,9 @@ public class GuiManager extends JFrame {
         jScrollPaneBlockedList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
         jScrollPaneBlockedList.setBounds(530, 160, 230, 380);
         add(jScrollPaneBlockedList);
-
+        this.blockedList.setFont(Constants.FONT_LIST);
+        this.readyQueue.setFont(Constants.FONT_LIST);
+        blockedList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         this.panelProcessExecution.setBounds(270, 150, 250, 270);
         add(panelProcessExecution);
         this.btnWakeProcess.setBounds(580, 550, 140, 30);
@@ -146,6 +150,14 @@ public class GuiManager extends JFrame {
         add(labelBlockedList);
         add(panelProcessExecution);
         add(btnWakeProcess);
+    }
+
+    public void resetComponentsPanelCurrentProcess(){
+        this.panelProcessExecution.resetComponents();
+    }
+
+    private void addToolTips(){
+        this.btnWakeProcess.setToolTipText(Constants.TOOL_TIP_BTN_WAKE_PROCESS);
     }
 
     public void setEnableLists(boolean status) {
@@ -174,7 +186,7 @@ public class GuiManager extends JFrame {
 
 
     public void resetSpinnerUCP() {
-        this.panelAdminUCP.resetSpinnerUCP();
+        this.panelAdminUCP.resetComponentsUCP();
     }
 
     public void setEnablePanelAdminUCP(boolean status) {
