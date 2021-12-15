@@ -8,7 +8,7 @@ import so.util.observer.ObserverEvent;
 
 import java.util.concurrent.TimeUnit;
 
-public class CPU extends Thread {
+public class CPU implements Runnable {
 
     private final Observable observable = new Observable();
     public static final int TIME_STEP = 1;
@@ -28,9 +28,8 @@ public class CPU extends Thread {
 
     public void runProcess(Process process) throws CPUException {
         if (process == null) throw new CPUException(ErrorCode.NO_ASSIGNED_PROCESS);
-        reset();
         processRunning = process;
-        start();
+        new Thread(this).start();
     }
 
     @Override
@@ -55,11 +54,6 @@ public class CPU extends Thread {
         }else {
             observable.notify(ObserverEvent.BLOCK);
         }
-        try {
-            this.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     private boolean hasTime() {
@@ -70,15 +64,15 @@ public class CPU extends Thread {
         observable.addObserver(observer);
     }
 
-    @Override
-    public void interrupt(){
-        super.interrupt();
-        reset();
-    }
-
     public Process reset(){
         executionTimeRemaining = executionTime;
-        return processRunning;
+        return liberateCPU();
+    }
+
+    public Process liberateCPU(){
+        Process process = processRunning;
+        processRunning = null;
+        return process;
     }
 
     public int getExecutionTime() {
@@ -95,5 +89,9 @@ public class CPU extends Thread {
 
     public void setExecutionTime(int executionTime) {
         this.executionTime = executionTime;
+    }
+
+    public boolean isFree(){
+        return processRunning == null;
     }
 }

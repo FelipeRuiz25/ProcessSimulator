@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 
 public class PanelProcessExecution extends JPanel {
 
-
     private ActionListener listener;
     private JLabel labelNameProcess;
     private JLabel labelTimeAssign;
@@ -48,6 +47,10 @@ public class PanelProcessExecution extends JPanel {
     public void setProcessActual(String nameProcessActual, int timeAssign, int timeRest) {
         this.textFieldNameProcess.setText(nameProcessActual);
         this.textFieldTimeAssign.setText(String.valueOf(timeAssign));
+        setTimeRest(timeRest);
+    }
+
+    public void setTimeRest(int timeRest){
         this.textFieldTimeRest.setText(String.valueOf(timeRest));
     }
 

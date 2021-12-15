@@ -1,6 +1,6 @@
 package so.simulator.models;
 
-public class Process{
+public class Process {
 
     //Contador para los nombres de los procesos
     private static int sequential;

@@ -148,4 +148,8 @@ public class ProcessStateManager {
     public Process getRunningProcess(){
         return cpu.getProcessRunning();
     }
+
+    public boolean hasCPUAvailable(){
+        return cpu.isFree();
+    }
 }

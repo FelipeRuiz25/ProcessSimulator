@@ -19,8 +19,8 @@ public class GuiManager extends JFrame {
     private PanelAdminUCP panelAdminUCP;
     private PanelCreateProcess panelCreateProcess;
     private PanelProcessExecution panelProcessExecution;
-    private JList readyQueue;
-    private JList blockedList;
+    private JList<String> readyQueue;
+    private JList<String> blockedList;
     private JLabel labelReadyQueue;
     private JLabel labelBlockedList;
     private MyJButton btnWakeProcess;
@@ -32,8 +32,8 @@ public class GuiManager extends JFrame {
         this.panelAdminUCP = new PanelAdminUCP(listener);
         this.panelCreateProcess = new PanelCreateProcess(listener);
         this.panelProcessExecution = new PanelProcessExecution(listener);
-        this.readyQueue = new JList();
-        this.blockedList = new JList();
+        this.readyQueue = new JList<String>();
+        this.blockedList = new JList<String>();
         this.labelBlockedList = new JLabel("Procesos bloqueados: ");
         this.labelReadyQueue = new JLabel("Procesos listos: ");
         this.btnWakeProcess = new MyJButton(listener, Commands.BTN_WAKE_PROCESS, "Despertar");
@@ -63,8 +63,8 @@ public class GuiManager extends JFrame {
     }
 
 
-    public void setTimeAssignUCP(int time) {
-//        this.panelAdminUCP.setTimeAssignUCP(time);
+    public void setTimeRestProcess(int time) {
+        this.panelProcessExecution.setTimeRest(time);
     }
 
     public void setTimeRestUCP(int time) {

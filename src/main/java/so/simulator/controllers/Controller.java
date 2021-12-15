@@ -45,12 +45,17 @@ public class Controller implements ActionListener, Observer {
                 guiManager.clearLists();
                 guiManager.setEnableBtnWakeProcess(false);
                 break;
+            case Commands.BTN_WAKE_PROCESS:
+                wakeProcess();
+                break;
         }
     }
 
+    private void wakeProcess() {}
+
     private void createProcess() {
         int time = guiManager.getTimeNewProcess();
-        if (!stateManager.hasProcessesReady()){
+        if (stateManager.hasCPUAvailable()){
             try {
                 stateManager.addProcess(time);
                 stateManager.dispatchNextProcess();
@@ -65,7 +70,6 @@ public class Controller implements ActionListener, Observer {
 
     @Override
     public void update(ObserverEvent event) {
-        System.out.println(event);
         switch (event) {
             case UPDATE_TIME:
                 updateTime();
@@ -75,6 +79,9 @@ public class Controller implements ActionListener, Observer {
                 break;
             case TIME_EXPIRATION:
                 nextProcess();
+                break;
+            case PROCESS_CHANGED:
+                updateProcessView();
                 break;
         }
     }
@@ -86,7 +93,7 @@ public class Controller implements ActionListener, Observer {
         int ucpTime = stateManager.getCPUTimeRemaining();
         guiManager.setTimeRestUCP(ucpTime);
         int processTime = stateManager.getProcessTimeRemaining();
-        guiManager.setTimeAssignUCP(processTime);
+        guiManager.setTimeRestProcess(processTime);
     }
 
     private void blockProcess() {
@@ -96,16 +103,22 @@ public class Controller implements ActionListener, Observer {
             // TODO: 14/12/21 Notificar si no hay mas procesos
             if (stateManager.hasProcessesReady()) {
                 stateManager.dispatchNextProcess();
-                Process process = stateManager.getRunningProcess();
-                guiManager.setProcessActual(
-                        process.getProcessName(),
-                        process.getSecondsOfExecution(),
-                        process.getSecondsOfExecutionRemaining());
+                updateProcessView();
             }
         } catch (CPUException e) {
             e.printStackTrace();
         }
         updateListAndQueue();
+    }
+
+    private void updateProcessView() {
+        if (!stateManager.hasCPUAvailable()) {
+            Process process = stateManager.getRunningProcess();
+            guiManager.setProcessActual(
+                    process.getProcessName(),
+                    process.getSecondsOfExecution(),
+                    process.getSecondsOfExecutionRemaining());
+        }
     }
 
     private void nextProcess() {
@@ -116,6 +129,7 @@ public class Controller implements ActionListener, Observer {
                     process.getSecondsOfExecution(),
                     process.getSecondsOfExecutionRemaining()
             );
+            updateListAndQueue();
         } catch (CPUException e) {
             e.printStackTrace();
         }
