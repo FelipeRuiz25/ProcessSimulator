@@ -50,12 +50,16 @@ public class Controller implements ActionListener, Observer {
                 guiManager.setEnablePanelProcessExecution(false);
                 guiManager.resetSpinnerUCP();
                 //Crea una nueva simulacion
-                stateManager = new ProcessStateManager(this);
+                stateManager.blockActualProcess();
                 Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
+                stateManager = new ProcessStateManager(this);
                 break;
             case Commands.BTN_WAKE_PROCESS:
                 wakeProcess();
+                break;
+            case Commands.BTN_STOP_PROCESS:
+                stateManager.blockActualProcess();
                 break;
         }
     }
@@ -64,7 +68,6 @@ public class Controller implements ActionListener, Observer {
         String selected = guiManager.getSelectItem();
         System.out.println("Seleccionado: " + selected);
         stateManager.wakeUpProcess(selected);
-        updateListAndQueue();
         if (stateManager.hasCPUAvailable()) {
             try {
                 stateManager.dispatchNextProcess();
@@ -72,6 +75,7 @@ public class Controller implements ActionListener, Observer {
                 e.printStackTrace();
             }
         }
+        updateListAndQueue();
     }
 
     private void createProcess() {

@@ -13,6 +13,8 @@ public class CPU implements Runnable {
     private final Observable observable = new Observable();
     public static final int TIME_STEP = 1;
 
+    private boolean blockProcess;
+
     private int executionTime;
     private int executionTimeRemaining;
 
@@ -36,7 +38,7 @@ public class CPU implements Runnable {
     public void run() {
         System.out.println("Proceso ejecutandose: " + processRunning.getProcessName());
         try {
-            while (processRunning.isAlive() && hasTime()) {
+            while (processRunning.isAlive() && hasTime() && !blockProcess) {
                 //Resta el tiempo de ejecución para el proceso actual
                 executionTimeRemaining -= TIME_STEP;
                 //ejecuta el proceso el tiempo asignado
@@ -49,7 +51,11 @@ public class CPU implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (processRunning.isAlive()){
+        if (blockProcess){
+            blockProcess = false;
+            processRunning.blockProcess();
+            observable.notify(ObserverEvent.BLOCK);
+        }else if (processRunning.isAlive()){
             observable.notify(ObserverEvent.TIME_EXPIRATION);
         }else {
             observable.notify(ObserverEvent.BLOCK);
@@ -93,5 +99,9 @@ public class CPU implements Runnable {
 
     public boolean isFree(){
         return processRunning == null;
+    }
+
+    public void blockProcess(){
+        blockProcess = true;
     }
 }

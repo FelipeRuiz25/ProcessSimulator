@@ -85,6 +85,10 @@ public class GuiManager extends JFrame {
         return this.panelCreateProcess.getTimeProcess();
     }
 
+    public void sumCountName() {
+        panelCreateProcess.addCount();
+    }
+
     public void updateReadyQueue(ArrayList<String> namesProcess) {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         for (String process : namesProcess) {
@@ -159,7 +163,7 @@ public class GuiManager extends JFrame {
     }
 
     public void clearLists() {
-        DefaultListModel listModelEmpty = new DefaultListModel();
+        DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
         this.blockedList.setModel(listModelEmpty);
         this.setEnableLists(false);

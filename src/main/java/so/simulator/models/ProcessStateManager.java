@@ -152,4 +152,8 @@ public class ProcessStateManager {
     public boolean hasCPUAvailable(){
         return cpu.isFree();
     }
+
+    public void blockActualProcess(){
+        cpu.blockProcess();
+    }
 }
