@@ -6,8 +6,10 @@ public class Process {
     private static int sequential;
 
     private String processName;
-    private int secondsOfExecution;//Segundos que el proceso va estar en ejecucuión
-    private int secondsOfExecutionRemaining;//Segundos que le quedan al proceso del tiempo de ejecucucion
+    //Segundos que el proceso va estar en ejecucuión
+    private int secondsOfExecution;
+    //Segundos que le quedan al proceso del tiempo de ejecucucion
+    private int secondsOfExecutionRemaining;
 
     /**
      * Crea un nuevo proceso y le asigna su tiempo de ejecución
