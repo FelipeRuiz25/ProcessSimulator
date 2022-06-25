@@ -29,6 +29,7 @@ public class GuiManager extends JFrame {
     public GuiManager(ActionListener listener) {
         super(Constants.TITTLE);
         setIconImage(new ImageIcon(Constants.ICON_PATH).getImage());
+        //configurar tema de la aplicacion
         FlatCyanLightIJTheme.setup();
         this.listener = listener;
         this.panelAdminUCP = new PanelAdminUCP(listener);
