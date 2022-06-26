@@ -5,6 +5,7 @@ import so.simulator.models.ProcessStateManager;
 import so.simulator.models.exceptions.CPUException;
 import so.simulator.views.Constants;
 import so.simulator.views.GuiManager;
+import so.simulator.views.ViewGraphics;
 import so.simulator.views.components.Output;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
@@ -60,6 +61,9 @@ public class Controller implements ActionListener, Observer {
                 break;
             case Commands.BTN_STOP_PROCESS:
                 stateManager.blockActualProcess();
+                break;
+            case Commands.BTN_OPEN_GRAPHICS:
+                new ViewGraphics();
                 break;
         }
     }

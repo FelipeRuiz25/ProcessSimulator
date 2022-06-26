@@ -10,6 +10,10 @@ public interface Constants {
 
     String TITTLE_PANEL_ADMIN_UCP = " Administracion UCP ";
     String TITTLE_PANEL_CREATION_PROCESS = " Creacion de proceso ";
+    String TITTLE_FRAME_GRAPHICS = "Graficas de los procesos";
+    String TITTLE_PANEL_GRAPHIC_TIME_LIFE = " Tabla del tiempo de vida total de los procesos ";
+    String TITTLE_PANEL_GRAPHIC_TIME_READY = " Tabla del tiempo en estado listo ";
+    String TITTLE_PANEL_GRAPHIC_TIME_WAITING = " Tabla del tiempo en estado bloqueado ";
     String TEXT_LABEL_TIME_ASSIGN = "Tiempo asignado: ";
     String TEXT_LABEl_TIME_REST = "Tiempo restante: ";
     String TEXT_SEG = "Seg.";
@@ -23,6 +27,9 @@ public interface Constants {
     String PRESIONE_PARA_CREAR_UN_PROCESO_CON_LOS_DATOS_INGRESADOS = "Presione para crear un proceso con los datos ingresados";
     String INGRESE_EL_TIEMPO_DE_EJECUCION_DEL_PROCESO = "Ingrese el tiempo de ejecucion del proceso";
     String TOOL_TIP_BTN_WAKE_PROCESS = "Presione para despertar el proceso selecionado de la lista de procesos bloqueados";
+    String TOOL_TIP_BTN_OPEN_GRAPHICS = "Presione para abrir las graficas sobre el tiempo de los procesos";
     String TOOL_TIP_BTN_STOP_PROCESS = "Presione si desea detener el proceso en ejecucion";
+    String VALUE_Y_GRAPHIC = "Tiempo ";
+    String VALUE_X_GRAPHIC = "Procesos";
 }
 

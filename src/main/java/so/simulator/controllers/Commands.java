@@ -7,4 +7,5 @@ public interface Commands {
     String BTN_CREATE_PROCESS = "btnCreateProcess";
     String BTN_WAKE_PROCESS = "btnWakeProcess";
     String BTN_STOP_PROCESS = "btnStopProcess";
+    String BTN_OPEN_GRAPHICS = "btnOpenGrapics";
 }
