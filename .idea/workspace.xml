@@ -4,43 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Version de entrega">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_formdev_flatlaf_1_6_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_formdev_flatlaf_intellij_themes_1_6_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_11_34_a__m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_6_19_p__m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21,_6_45_p__m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__11_34_a__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__6_19_p__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_12_21__6_45_p__m___Changes_.xml" beforeDir="false" />
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Jdk modificado a 8.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/SimulationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/so/util/RandomNumberGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/CPUTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/ProcessCreatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/ProcessTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/test/SimulatorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProcessSimulator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProcessSimulator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/CPU.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Simulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/exceptions/CPUException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/exceptions/CPUException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/components/MyJButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/components/MyJButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/CPU.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/ProcessStateManager.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/CPUException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/CPUException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/ErrorCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/exceptions/ErrorCode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/runner/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/runner/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/components/ModifiedFlowLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/components/ModifiedFlowLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/components/MyJButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/components/MyJButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelAdminUCP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelCreateProcess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/panels/PanelProcessExecution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/observer/Observable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/observer/Observable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/observer/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/observer/Observer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/observer/ObserverEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/observer/ObserverEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/queue/ListIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/queue/ListIterator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/queue/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/queue/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/util/queue/Queue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/util/queue/Queue.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,15 +36,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Ruiz" />
+        <entry key="$PROJECT_DIR$" value="e33de6e0e7470819330f75b63cf1a5cd53de851e" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,29 +68,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/felipe/Mintic/Ciclo 2/reto3",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/felipe/Desktop/ISC/Sistemas Operativos/ProcessSimulator/src/main/java/so/util&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/so/util" />
       <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/main/java/so/util/queue" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Runner">
+    <configuration name="CPUTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CPUTest" />
+      <module name="ProcessSimulator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessCreatorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProcessCreatorTest" />
+      <module name="ProcessSimulator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProcessTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProcessTest" />
+      <module name="ProcessSimulator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Runner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="so.simulator.runner.Runner" />
       <module name="ProcessSimulator" />
@@ -115,6 +123,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimulatorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SimulatorTest" />
+      <module name="ProcessSimulator" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,9 +148,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Runner" />
-        <item itemvalue="Application.Runner" />
-        <item itemvalue="Application.Runner" />
-        <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.SimulatorTest" />
+        <item itemvalue="Application.ProcessTest" />
+        <item itemvalue="Application.ProcessCreatorTest" />
+        <item itemvalue="Application.CPUTest" />
       </list>
     </recent_temporary>
   </component>
@@ -160,6 +176,9 @@
       <workItem from="1655953360915" duration="3550000" />
       <workItem from="1656030075609" duration="2303000" />
       <workItem from="1656121453934" duration="250000" />
+      <workItem from="1656167841014" duration="737000" />
+      <workItem from="1656168599165" duration="36823000" />
+      <workItem from="1656255475214" duration="8693000" />
     </task>
     <task id="LOCAL-00001" summary="clase Proccess creada :3">
       <created>1639453876371</created>
@@ -259,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639572745542</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Jdk modificado a 8.0">
+      <created>1656167948206</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656167948206</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,7 +317,8 @@
     <MESSAGE value="Version &quot;Estable&quot;" />
     <MESSAGE value="contador - nombre nuevo proceso corregido" />
     <MESSAGE value="Version de entrega" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version de entrega" />
+    <MESSAGE value="Jdk modificado a 8.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jdk modificado a 8.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

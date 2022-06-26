@@ -11,5 +11,4 @@ public class MyJButton extends JButton {
         this.setActionCommand(actionCommand);
     }
 
-
 }

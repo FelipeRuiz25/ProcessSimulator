@@ -1,25 +1,25 @@
 package so.simulator.controllers;
 
+import so.simulator.models.CPU;
 import so.simulator.models.Process;
-import so.simulator.models.ProcessStateManager;
-import so.simulator.models.exceptions.CPUException;
-import so.simulator.views.Constants;
+import so.simulator.models.ProcessCreator;
+import so.simulator.models.Simulator;
 import so.simulator.views.GuiManager;
 import so.simulator.views.components.Output;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener, Observer {
 
+    public static final int QUANTUM = 5;
+
     private GuiManager guiManager;
-    private ProcessStateManager stateManager;
+    private Simulator simulator;
 
     public Controller() {
         this.guiManager = new GuiManager(this);
-        this.stateManager = new ProcessStateManager(this);
     }
 
     @Override
@@ -27,8 +27,6 @@ public class Controller implements ActionListener, Observer {
         System.out.println(e.getActionCommand());
         switch (e.getActionCommand()) {
             case Commands.BTN_STAR_UCP:
-                int timeAssign = guiManager.getTimeAssignUCP();
-                stateManager.setCpuExecuteTime(timeAssign);
                 guiManager.setEnableLists(true);
                 guiManager.setEnablePanelAdminUCP(false);
                 guiManager.setEnableLists(true);
@@ -42,10 +40,8 @@ public class Controller implements ActionListener, Observer {
                 guiManager.sumCountName();
                 break;
             case Commands.BTN_FINISH_UCP:
-                stateManager.blockActualProcess();
                 Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
-                stateManager = new ProcessStateManager(this);
                 guiManager.setEnablePanelAdminUCP(true);
                 guiManager.setEnablePanelCreateProcess(false);
                 guiManager.setEnableLists(false);
@@ -55,52 +51,24 @@ public class Controller implements ActionListener, Observer {
                 guiManager.resetComponentsPanelCurrentProcess();
                 guiManager.clearLists();
                 break;
-            case Commands.BTN_WAKE_PROCESS:
-                wakeProcess();
-                break;
-            case Commands.BTN_STOP_PROCESS:
-                stateManager.blockActualProcess();
-                break;
         }
-    }
-
-    private void wakeProcess() {
-        String selected = guiManager.getSelectItem();
-        stateManager.wakeUpProcess(selected);
-        if (stateManager.hasCPUAvailable()) {
-            try {
-                stateManager.dispatchNextProcess();
-                updateProcessView();
-            } catch (CPUException e) {
-                e.printStackTrace();
-            }
-        }
-        updateListAndQueue();
     }
 
     private void createProcess() {
-        int time = guiManager.getTimeNewProcess();
-        if (stateManager.hasCPUAvailable()) {
-            try {
-                stateManager.addProcess(time);
-                stateManager.dispatchNextProcess();
-            } catch (CPUException e) {
-                e.printStackTrace();
-            }
-        } else {
-            stateManager.addProcess(time);
-        }
-        guiManager.updateReadyQueue(stateManager.getReadyQueue());
+        // int time = guiManager.getTimeNewProcess();
+        // if (simulator.hasCPUAvailable())
+        // guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 
     @Override
     public void update(ObserverEvent event) {
+        updateTime();
+
         switch (event) {
             case UPDATE_TIME:
-                updateTime();
                 break;
             case BLOCK:
-                blockProcess();
+                //blockProcess();
                 break;
             case TIME_EXPIRATION:
                 nextProcess();
@@ -115,55 +83,35 @@ public class Controller implements ActionListener, Observer {
      * Actualiza los tiempos restantes de ejecución
      */
     private void updateTime() {
-        int ucpTime = stateManager.getCPUTimeRemaining();
+        int ucpTime = simulator.getCPUTimeRemaining();
         guiManager.setTimeRestUCP(ucpTime);
-        int processTime = stateManager.getProcessTimeRemaining();
+        int processTime = simulator.getProcessTimeRemaining();
         guiManager.setTimeRestProcess(processTime);
     }
 
-    private void blockProcess() {
-        //Bloquea el proceso de la UCP
-        stateManager.blockProcess();
-        try {
-            if (stateManager.hasProcessesReady()) {
-                stateManager.dispatchNextProcess();
-                updateProcessView();
-            } else {
-                guiManager.resetComponentsPanelCurrentProcess();
-                Output.showInfoMessage(Constants.NO_HAY_MAS_PROCESOS_POR_EJECUTAR);
-            }
-        } catch (CPUException e) {
-            e.printStackTrace();
-        }
-        updateListAndQueue();
-    }
 
     private void updateProcessView() {
-        if (!stateManager.hasCPUAvailable()) {
-            Process process = stateManager.getRunningProcess();
+        if (!simulator.hasCPUAvailable()) {
+            Process process = simulator.getRunningProcess();
             guiManager.setProcessActual(
                     process.getProcessName(),
-                    process.getSecondsOfExecution(),
-                    process.getSecondsOfExecutionRemaining());
+                    process.getTimeLife(),
+                    process.getLifeTimeRemaining());
         }
     }
 
     private void nextProcess() {
-        try {
-            Process process = stateManager.finishProcessTurn();
-            guiManager.setProcessActual(
-                    process.getProcessName(),
-                    process.getSecondsOfExecution(),
-                    process.getSecondsOfExecutionRemaining()
-            );
-            guiManager.updateReadyQueue(stateManager.getReadyQueue());
-        } catch (CPUException e) {
-            e.printStackTrace();
-        }
+        Process process = simulator.getRunningProcess();
+        guiManager.setProcessActual(
+                process.getProcessName(),
+                process.getTimeLife(),
+                process.getLifeTimeRemaining()
+        );
+        guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 
     private void updateListAndQueue() {
-        guiManager.updateBlockedList(stateManager.getBlockedList());
-        guiManager.updateReadyQueue(stateManager.getReadyQueue());
+        guiManager.updateBlockedList(simulator.getBlockedList());
+        guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 }

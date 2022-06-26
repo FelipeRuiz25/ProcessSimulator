@@ -1,7 +1,5 @@
 package so.simulator.models.exceptions;
 
-import so.simulator.models.exceptions.ErrorCode;
-
 public class CPUException extends Exception{
 
     private final ErrorCode code;

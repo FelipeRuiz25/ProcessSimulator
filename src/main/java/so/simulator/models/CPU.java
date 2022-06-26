@@ -8,81 +8,32 @@ import so.util.observer.ObserverEvent;
 
 import java.util.concurrent.TimeUnit;
 
-public class CPU implements Runnable {
-
-    private final Observable observable = new Observable();
-    public static final int TIME_STEP = 1;
-
-    private boolean blockProcess;
+public class CPU {
 
     private int executionTime;
     private int executionTimeRemaining;
 
     private Process processRunning;
 
-    public CPU(Observer observer) {
-        observable.addObserver(observer);
-    }
-
+    /**
+     * Crea la unidad de CPU y le asigna el quantum de ejecucion
+     * @param executionTime
+     */
     public CPU(int executionTime) {
         this.executionTime = executionTime;
+        this.executionTimeRemaining = executionTime;
     }
 
     public void runProcess(Process process) throws CPUException {
         if (process == null) throw new CPUException(ErrorCode.NO_ASSIGNED_PROCESS);
         processRunning = process;
-        new Thread(this).start();
-    }
-
-    @Override
-    public void run() {
-        System.out.println("Proceso ejecutandose: " + processRunning.getProcessName());
-        try {
-            while (processRunning.isAlive() && hasTime() && !blockProcess) {
-                //Resta el tiempo de ejecución para el proceso actual
-                executionTimeRemaining -= TIME_STEP;
-                //ejecuta el proceso el tiempo asignado
-                processRunning.run(TIME_STEP);
-                //duerme el hilo segundos
-                TimeUnit.SECONDS.sleep(TIME_STEP);
-                //notifica a los observadores que actualicen la vista
-                observable.notify(ObserverEvent.UPDATE_TIME);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if (blockProcess){
-            blockProcess = false;
-            processRunning.blockProcess();
-            observable.notify(ObserverEvent.BLOCK);
-        }else if (processRunning.isAlive()){
-            observable.notify(ObserverEvent.TIME_EXPIRATION);
-        }else {
-            observable.notify(ObserverEvent.BLOCK);
-        }
-    }
-
-    private boolean hasTime() {
-        return executionTimeRemaining > 0;
-    }
-
-    public void addObserver(Observer observer) {
-        observable.addObserver(observer);
-    }
-
-    public Process reset(){
-        executionTimeRemaining = executionTime;
-        return liberateCPU();
     }
 
     public Process liberateCPU(){
+        executionTimeRemaining = executionTime;
         Process process = processRunning;
         processRunning = null;
         return process;
-    }
-
-    public int getExecutionTime() {
-        return executionTime;
     }
 
     public int getExecutionTimeRemaining() {
@@ -93,15 +44,20 @@ public class CPU implements Runnable {
         return processRunning;
     }
 
-    public void setExecutionTime(int executionTime) {
-        this.executionTime = executionTime;
+    public Process update(){
+        if (!isFree()){
+            executionTimeRemaining--;
+            //Ejecuta el proceso
+            processRunning.update();
+            //Si se acaba el quantum o el tiempo de vida del proceso libera la CPU
+            if (executionTimeRemaining < 0 || !processRunning.isAlive()){
+                return liberateCPU();
+            }
+        }
+        return null;
     }
 
     public boolean isFree(){
         return processRunning == null;
-    }
-
-    public void blockProcess(){
-        blockProcess = true;
     }
 }
