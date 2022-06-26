@@ -52,12 +52,6 @@ public class Controller implements ActionListener, Observer {
                 guiManager.resetComponentsPanelCurrentProcess();
                 guiManager.clearLists();
                 break;
-            case Commands.BTN_WAKE_PROCESS:
-                wakeProcess();
-                break;
-            case Commands.BTN_STOP_PROCESS:
-                stateManager.blockActualProcess();
-                break;
             case Commands.BTN_OPEN_GRAPHICS:
                 new ViewGraphics();
                 break;
