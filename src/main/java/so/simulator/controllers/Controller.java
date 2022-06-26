@@ -5,6 +5,7 @@ import so.simulator.models.Process;
 import so.simulator.models.ProcessCreator;
 import so.simulator.models.Simulator;
 import so.simulator.views.GuiManager;
+import so.simulator.views.ViewGraphics;
 import so.simulator.views.components.Output;
 import so.util.observer.Observer;
 import so.util.observer.ObserverEvent;
@@ -50,6 +51,15 @@ public class Controller implements ActionListener, Observer {
                 guiManager.resetSpinnerUCP();
                 guiManager.resetComponentsPanelCurrentProcess();
                 guiManager.clearLists();
+                break;
+            case Commands.BTN_WAKE_PROCESS:
+                wakeProcess();
+                break;
+            case Commands.BTN_STOP_PROCESS:
+                stateManager.blockActualProcess();
+                break;
+            case Commands.BTN_OPEN_GRAPHICS:
+                new ViewGraphics();
                 break;
         }
     }
