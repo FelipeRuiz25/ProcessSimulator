@@ -25,10 +25,12 @@ public class GuiManager extends JFrame {
     private JLabel labelReadyQueue;
     private JLabel labelBlockedList;
     private MyJButton btnWakeProcess;
+    private MyJButton btnOpenGraphs;
 
     public GuiManager(ActionListener listener) {
         super(Constants.TITTLE);
         setIconImage(new ImageIcon(Constants.ICON_PATH).getImage());
+        //configurar tema de la aplicacion
         FlatCyanLightIJTheme.setup();
         this.listener = listener;
         this.panelAdminUCP = new PanelAdminUCP(listener);
@@ -39,6 +41,7 @@ public class GuiManager extends JFrame {
         this.labelBlockedList = new JLabel("Procesos bloqueados: ");
         this.labelReadyQueue = new JLabel("Procesos listos: ");
         this.btnWakeProcess = new MyJButton(listener, Commands.BTN_WAKE_PROCESS, "Despertar");
+        this.btnOpenGraphs = new MyJButton(listener, Commands.BTN_OPEN_GRAPHICS, "Abrir Graficas");
         this.init();
     }
 
@@ -48,6 +51,7 @@ public class GuiManager extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
         this.btnWakeProcess.setEnabled(false);
+        this.btnOpenGraphs.setEnabled(false);
         this.setEnableLists(false);
         this.fill();
         addToolTips();
@@ -60,6 +64,7 @@ public class GuiManager extends JFrame {
 
     public void setEnableBtnWakeProcess(boolean status){
         this.btnWakeProcess.setEnabled(status);
+        this.btnOpenGraphs.setEnabled(status);
     }
 
     public void setEnablePanelProcessExecution(boolean status){
@@ -145,12 +150,14 @@ public class GuiManager extends JFrame {
         this.panelProcessExecution.setBounds(270, 150, 250, 270);
         add(panelProcessExecution);
         this.btnWakeProcess.setBounds(580, 550, 140, 30);
+        this.btnOpenGraphs.setBounds(330, 550, 140, 30);
         add(panelAdminUCP);
         add(panelCreateProcess);
         add(labelReadyQueue);
         add(labelBlockedList);
         add(panelProcessExecution);
         add(btnWakeProcess);
+        add(btnOpenGraphs);
     }
 
     public void resetComponentsPanelCurrentProcess(){
@@ -159,6 +166,7 @@ public class GuiManager extends JFrame {
 
     private void addToolTips(){
         this.btnWakeProcess.setToolTipText(Constants.TOOL_TIP_BTN_WAKE_PROCESS);
+        this.btnOpenGraphs.setToolTipText(Constants.TOOL_TIP_BTN_OPEN_GRAPHICS);
     }
 
     public void setEnableLists(boolean status) {
