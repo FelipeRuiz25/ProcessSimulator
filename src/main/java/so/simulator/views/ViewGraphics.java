@@ -5,6 +5,7 @@ import so.simulator.views.panels.PanelGraphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ViewGraphics extends JFrame {
 
@@ -14,7 +15,7 @@ public class ViewGraphics extends JFrame {
     private PanelGraphic graphicTimeOfReady;
     private PanelGraphic graphicTimeOfWaiting;
 
-    public ViewGraphics(){
+    public ViewGraphics(ArrayList<Integer> listTimeLife,ArrayList<Integer> listTimeBlock){
         super(Constants.TITTLE);
         setIconImage(new ImageIcon(Constants.ICON_PATH).getImage());
         //configurar tema de la aplicacion
@@ -23,9 +24,9 @@ public class ViewGraphics extends JFrame {
         this.mainPanel = new JPanel();
         this.setBackground(Color.WHITE);
         this.mainPanel.setBackground(Color.WHITE);
-        this.graphicTimeOfLife  = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_LIFE);
-        this.graphicTimeOfReady = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_READY);
-        this.graphicTimeOfWaiting = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_WAITING);
+        this.graphicTimeOfLife  = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_LIFE,listTimeLife);
+        this.graphicTimeOfReady = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_READY,listTimeLife);
+        this.graphicTimeOfWaiting = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_WAITING,listTimeBlock);
         this.graphicTimeOfLife.setBackground(Color.WHITE);
         this.graphicTimeOfReady.setBackground(Color.WHITE);
         this.graphicTimeOfWaiting.setBackground(Color.WHITE);
