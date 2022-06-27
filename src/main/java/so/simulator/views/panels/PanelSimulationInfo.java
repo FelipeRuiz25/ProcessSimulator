@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 
 public class PanelSimulationInfo extends JPanel {
 
-    private MyJButton btnForwardSimulation;
     private MyJButton btnFinishSimulation;
     private JLabel timeClock;
     private JLabel textTimeClock;
@@ -22,7 +21,6 @@ public class PanelSimulationInfo extends JPanel {
 
     public PanelSimulationInfo(ActionListener listener) {
         this.setBorder(BorderFactory.createTitledBorder(Constants.TITTLE_PANEL_SIMULATION));
-        this.btnForwardSimulation = new MyJButton(listener, Commands.BTN_FORWARD_SIMULATION, Constants.TEXT_BTN_FORWARD_SIMULATION);
         this.btnFinishSimulation = new MyJButton(listener, Commands.BTN_FINISH_SIMULATION, Constants.TEXT_BTN_FINISH_SIMULATION);
         this.timeAssign = new JLabel(Constants.TEXT_LABEL_TIME_ASSIGN);
         this.textTimeAssign = new JLabel("0:00");
@@ -37,13 +35,11 @@ public class PanelSimulationInfo extends JPanel {
 
     private void addToolTips(){
         this.btnFinishSimulation.setToolTipText("Presione si desea detener la simulacion");
-        this.btnForwardSimulation.setToolTipText("Presione si desea iniciar la simulacion");
     }
 
     private void fill() {
         this.setLayout(null);
-        this.btnForwardSimulation.setBounds(260, 25, 110, 35);
-        this.btnFinishSimulation.setBounds(260, 70, 110, 35);
+        this.btnFinishSimulation.setBounds(260, 25, 110, 35);
 
         this.timeAssign.setBounds(20, 20, 150, 30);
         this.textTimeAssign.setBounds(150,20,100,30);
@@ -53,7 +49,6 @@ public class PanelSimulationInfo extends JPanel {
 
         this.quantum.setBounds(20, 80, 150, 30);
         this.textQuantum.setBounds(150, 80, 100, 30);
-        add(btnForwardSimulation);
         add(btnFinishSimulation);
         add(timeAssign);
         add(textTimeAssign);
@@ -85,6 +80,5 @@ public class PanelSimulationInfo extends JPanel {
     public void setEnableComponents(boolean status){
         this.btnFinishSimulation.setEnabled(!status);
         this.setEnabled(status);
-        this.btnForwardSimulation.setEnabled(status);
     }
 }

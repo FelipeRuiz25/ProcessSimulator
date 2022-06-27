@@ -88,6 +88,9 @@ public class Simulator extends Observable implements Runnable{
         }
         if (!cpu.isFree() && cpu.getProcessRunning().isBlocked()){
             status.processBlocked = true;
+            if (!blockedList.contains(cpu.getProcessRunning())){
+                blockedList.add(cpu.getProcessRunning());
+            }
         }
         return status;
     }

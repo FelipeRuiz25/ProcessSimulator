@@ -25,38 +25,31 @@ public class Controller implements ActionListener, Observer {
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         switch (e.getActionCommand()) {
-            case Commands.BTN_FORWARD_SIMULATION:
-                guiManager.setEnableLists(true);
-                guiManager.setEnablePanelAdminUCP(false);
-                guiManager.setEnableLists(true);
-                guiManager.setEnablePanelCreateProcess(true);
-                guiManager.setEnableBtnWakeProcess(true);
-                break;
-            case Commands.BTN_CREATE_PROCESS:
-                processCreated();
-                guiManager.setEnablePanelProcessExecution(true);
-                guiManager.sumCountName();
-                break;
             case Commands.BTN_FINISH_SIMULATION:
-                Process.resetSequential();
-                Output.showInfoMessage("Simulacion finalizada.");
-                guiManager.setEnablePanelAdminUCP(true);
-                guiManager.setEnablePanelCreateProcess(false);
-                guiManager.setEnableLists(false);
-                guiManager.setEnableBtnWakeProcess(false);
-                guiManager.setEnablePanelProcessExecution(false);
-                guiManager.resetSpinnerUCP();
-                guiManager.resetComponentsPanelCurrentProcess();
-                guiManager.clearLists();
+                finishSimulation();
                 break;
             case Commands.BTN_OPEN_GRAPHICS:
                 new ViewGraphics();
                 break;
             case Commands.BTN_START_SIMULATION:
-                if(simulator != null) simulator.stopSimulation();
+                if(simulator != null) finishSimulation();
                 createSimulation();
                 break;
         }
+    }
+
+    private void finishSimulation() {
+        Process.resetSequential();
+        Output.showInfoMessage("Simulacion finalizada.");
+        guiManager.setEnablePanelAdminUCP(true);
+        guiManager.setEnablePanelCreateProcess(false);
+        guiManager.setEnableLists(false);
+        guiManager.setEnableBtnWakeProcess(false);
+        guiManager.setEnablePanelProcessExecution(false);
+        guiManager.resetSpinnerUCP();
+        guiManager.resetComponentsPanelCurrentProcess();
+        guiManager.clearLists();
+        if (simulator != null) simulator.stopSimulation();
     }
 
     private void createSimulation() {
@@ -82,6 +75,14 @@ public class Controller implements ActionListener, Observer {
         if (status.processCreated()){
             processCreated();
         }
+        if (status.newProcessRunning()){
+            
+        }
+        if (!simulator.hasCPUAvailable()){
+            if (simulator.getRunningProcess().isBlocked()){
+                
+            }
+        }
     }
 
     private void updateTime() {
@@ -97,7 +98,7 @@ public class Controller implements ActionListener, Observer {
     }
 
 
-    private void updateProcessView() {
+    private void updateProcessRunningView() {
         if (!simulator.hasCPUAvailable()) {
             Process process = simulator.getRunningProcess();
             guiManager.setProcessActual(
@@ -114,11 +115,6 @@ public class Controller implements ActionListener, Observer {
                 process.getTimeLife(),
                 process.getLifeTimeRemaining()
         );
-        guiManager.updateReadyQueue(simulator.getReadyQueue());
-    }
-
-    private void updateListAndQueue() {
-        guiManager.updateBlockedList(simulator.getBlockedList());
         guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 }
