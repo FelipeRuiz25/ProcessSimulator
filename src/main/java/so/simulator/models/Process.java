@@ -16,6 +16,8 @@ public class Process {
     private final int timeIOOperation;
     //segundos que le quedan a la operacion de entrada y salida
     private int timeIORemaining;
+    //TIempo que lleva el proceso en la
+    private int timeReady;
 
     private boolean blocked;
 
@@ -77,6 +79,10 @@ public class Process {
 
     public int getTimeIORemaining() {
         return timeIORemaining;
+    }
+
+    public void addTimeReady(){
+        timeReady++;
     }
 
     @Override

@@ -71,6 +71,8 @@ public class Simulator extends Observable implements Runnable{
     }
 
     public SimulationStatus update() throws CPUException {
+        //Actualiza el tiempo que llevan los procesos en la cola de espera
+        readyQueue.forEach(Process::addTimeReady);
         status.update();
         Process newProcess = creator.update();
         Process lastProcess = cpu.update();
