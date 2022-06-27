@@ -76,6 +76,9 @@ public class Controller implements ActionListener, Observer {
         if (status.processCreated()){
             processCreated();
         }
+        if (status.newProcessRunning() || status.cpuExpirationTime()){
+            guiManager.updateReadyQueue(simulator.getReadyQueue());
+        }
         if (!simulator.hasCPUAvailable()){
             if (simulator.getRunningProcess().isBlocked()) {
                 updateProcessBlockedView();
