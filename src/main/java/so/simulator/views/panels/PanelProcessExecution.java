@@ -33,8 +33,7 @@ public class PanelProcessExecution extends JPanel {
         this.textFieldNameProcess = new JLabel();
         this.textFieldTimeAssign = new JLabel();
         this.textFieldTimeRest = new JLabel();
-        this.progressBar = new JProgressBar(JProgressBar.HORIZONTAL,0,10);;
-        progressBar.setValue(6);
+        this.progressBar = new JProgressBar(JProgressBar.HORIZONTAL);;
         progressBar.setStringPainted(true);
         this.fill();
     }
@@ -59,6 +58,14 @@ public class PanelProcessExecution extends JPanel {
         this.textFieldNameProcess.setText("0");
     }
 
+    public void setProgressBarTimeTask(int timeTask){
+        progressBar.setMaximum(timeTask);
+    }
+
+    public void setProgressBarValue(int value){
+        progressBar.setValue(value);
+    }
+
     private void fill() {
         this.setLayout(null);
         this.labelNameProcess.setBounds(20, 40, 120, 20);
@@ -75,5 +82,12 @@ public class PanelProcessExecution extends JPanel {
         add(textFieldTimeAssign);
         add(textFieldTimeRest);
         add(progressBar);
+    }
+
+    public void clear() {
+        textFieldNameProcess.setText("");
+        textFieldTimeAssign.setText("");
+        textFieldTimeRest.setText("");
+        progressBar.setValue(0);
     }
 }

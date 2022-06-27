@@ -41,7 +41,8 @@ public class CPU {
 
     public Process update(){
         if (!isFree()){
-            executionTimeRemaining--;
+            if (!processRunning.isBlocked())
+                executionTimeRemaining--;
             //Ejecuta el proceso
             processRunning.update();
             //Si se acaba el quantum o el tiempo de vida del proceso libera la CPU

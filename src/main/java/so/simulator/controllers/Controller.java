@@ -54,6 +54,7 @@ public class Controller implements ActionListener, Observer {
 
     private void createSimulation() {
         guiManager.getPanelSimulationInfo().setQuantum(QUANTUM);
+        guiManager.getPanelProcessExecution().setProgressBarTimeTask(QUANTUM);
         ProcessCreator creator = new ProcessCreator(
                 guiManager.getPanelCreateSimulation().getMaxTimeIOOperation(),
                 guiManager.getPanelCreateSimulation().getMaxProcessTimeLife(),
@@ -75,13 +76,15 @@ public class Controller implements ActionListener, Observer {
         if (status.processCreated()){
             processCreated();
         }
-        if (status.newProcessRunning()){
-            
-        }
         if (!simulator.hasCPUAvailable()){
-            if (simulator.getRunningProcess().isBlocked()){
-                
+            if (simulator.getRunningProcess().isBlocked()) {
+                updateProcessBlockedView();
+            }else {
+                updateProcessRunningView();
+                guiManager.getPanelProcessBlocked().clear();
             }
+        }else {
+            guiManager.getPanelProcessExecution().clear();
         }
     }
 
@@ -105,6 +108,19 @@ public class Controller implements ActionListener, Observer {
                     process.getProcessName(),
                     process.getTimeLife(),
                     process.getLifeTimeRemaining());
+            guiManager.getPanelProcessExecution().setProgressBarValue(
+                    QUANTUM - simulator.getCPUTimeRemaining()
+            );
+        }
+    }
+
+    private void updateProcessBlockedView(){
+        if (!simulator.hasCPUAvailable()) {
+            Process process = simulator.getRunningProcess();
+            guiManager.getPanelProcessBlocked().setProcessActual(
+                    process.getProcessName(),
+                    process.getTimeIOOperation(),
+                    process.getTimeIORemaining()-1);
         }
     }
 

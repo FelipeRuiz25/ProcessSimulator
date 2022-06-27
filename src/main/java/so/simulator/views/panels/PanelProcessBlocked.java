@@ -30,16 +30,18 @@ public class PanelProcessBlocked extends JPanel {
         this.textFieldNameProcess = new JLabel();
         this.textFieldTimeIRQ = new JLabel();
         this.textFieldTimeRest = new JLabel();
-        this.progressBar = new JProgressBar(JProgressBar.HORIZONTAL,0,10);;
+        this.progressBar = new JProgressBar(JProgressBar.HORIZONTAL);;
         progressBar.setStringPainted(true);
         this.fill();
     }
 
 
-    public void setProcessActual(String nameProcessActual, int timeAssign, int timeRest) {
+    public void setProcessActual(String nameProcessActual, int irqTime, int irqTimeRest) {
         this.textFieldNameProcess.setText(nameProcessActual);
-        this.textFieldTimeIRQ.setText(String.valueOf(timeAssign));
-        setTimeRest(timeRest);
+        this.textFieldTimeIRQ.setText(String.valueOf(irqTime));
+        setTimeRest(irqTimeRest);
+        progressBar.setMaximum(irqTime);
+        progressBar.setValue(irqTime - irqTimeRest);
     }
 
     public void setTimeRest(int timeRest){
@@ -54,6 +56,14 @@ public class PanelProcessBlocked extends JPanel {
         this.textFieldTimeIRQ.setText("0");
         this.textFieldTimeRest.setText("0");
         this.textFieldNameProcess.setText("0");
+    }
+
+    public void setProgressBarTimeTask(int timeTask){
+        progressBar.setMaximum(timeTask);
+    }
+
+    public void setProgressBarValue(int value){
+        progressBar.setValue(value);
     }
 
 
@@ -73,6 +83,13 @@ public class PanelProcessBlocked extends JPanel {
         add(textFieldTimeIRQ);
         add(textFieldTimeRest);
         add(progressBar);
+    }
+
+    public void clear() {
+        textFieldNameProcess.setText("");
+        textFieldTimeIRQ.setText("");
+        textFieldTimeRest.setText("");
+        progressBar.setValue(0);
     }
 }
 

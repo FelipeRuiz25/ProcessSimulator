@@ -20,7 +20,6 @@ public class Observable {
     }
 
     public void notifyObservers(SimulationStatus status){
-        System.out.println(status);
         for (Observer o: observers) {
             o.update(status);
         }

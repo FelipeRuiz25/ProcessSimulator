@@ -75,6 +75,10 @@ public class Process {
         return timeIOOperation;
     }
 
+    public int getTimeIORemaining() {
+        return timeIORemaining;
+    }
+
     @Override
     public String toString() {
         return "name='" + processName + '\'' +
