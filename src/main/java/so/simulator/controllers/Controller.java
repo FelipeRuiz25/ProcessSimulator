@@ -1,14 +1,12 @@
 package so.simulator.controllers;
 
-import so.simulator.models.CPU;
+import so.simulator.models.*;
 import so.simulator.models.Process;
-import so.simulator.models.ProcessCreator;
-import so.simulator.models.Simulator;
 import so.simulator.views.GuiManager;
 import so.simulator.views.ViewGraphics;
 import so.simulator.views.components.Output;
 import so.util.observer.Observer;
-import so.util.observer.ObserverEvent;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,7 +25,7 @@ public class Controller implements ActionListener, Observer {
     public void actionPerformed(ActionEvent e) {
         System.out.println(e.getActionCommand());
         switch (e.getActionCommand()) {
-            case Commands.BTN_STAR_UCP:
+            case Commands.BTN_FORWARD_SIMULATION:
                 guiManager.setEnableLists(true);
                 guiManager.setEnablePanelAdminUCP(false);
                 guiManager.setEnableLists(true);
@@ -35,12 +33,11 @@ public class Controller implements ActionListener, Observer {
                 guiManager.setEnableBtnWakeProcess(true);
                 break;
             case Commands.BTN_CREATE_PROCESS:
-                createProcess();
-                guiManager.resetSpinnerPanelCreateProcess();
+                processCreated();
                 guiManager.setEnablePanelProcessExecution(true);
                 guiManager.sumCountName();
                 break;
-            case Commands.BTN_FINISH_UCP:
+            case Commands.BTN_FINISH_SIMULATION:
                 Process.resetSequential();
                 Output.showInfoMessage("Simulacion finalizada.");
                 guiManager.setEnablePanelAdminUCP(true);
@@ -55,42 +52,48 @@ public class Controller implements ActionListener, Observer {
             case Commands.BTN_OPEN_GRAPHICS:
                 new ViewGraphics();
                 break;
+            case Commands.BTN_START_SIMULATION:
+                if(simulator != null) simulator.stopSimulation();
+                createSimulation();
+                break;
         }
     }
 
-    private void createProcess() {
-        // int time = guiManager.getTimeNewProcess();
-        // if (simulator.hasCPUAvailable())
-        // guiManager.updateReadyQueue(simulator.getReadyQueue());
+    private void createSimulation() {
+        guiManager.getPanelSimulationInfo().setQuantum(QUANTUM);
+        ProcessCreator creator = new ProcessCreator(
+                guiManager.getPanelCreateSimulation().getMaxTimeIOOperation(),
+                guiManager.getPanelCreateSimulation().getMaxProcessTimeLife(),
+                guiManager.getPanelCreateSimulation().getMaxTimeNextProcess()
+        );
+        guiManager.getPanelCreateProcess().setCreatorInfo(
+                creator.getMaxTimeIO(), creator.getMaxTimeProcessLife()
+        );
+        int simulationTime = guiManager.getPanelCreateSimulation().getSimulationTime();
+        guiManager.getPanelSimulationInfo().setSimulationTime(simulationTime);
+        simulator = new Simulator(simulationTime,new CPU(QUANTUM), creator);
+        simulator.addObserver(this);
+        simulator.startSimulation();
     }
 
     @Override
-    public void update(ObserverEvent event) {
+    public void update(SimulationStatus status) {
         updateTime();
-
-        switch (event) {
-            case UPDATE_TIME:
-                break;
-            case BLOCK:
-                //blockProcess();
-                break;
-            case TIME_EXPIRATION:
-                nextProcess();
-                break;
-            case PROCESS_CHANGED:
-                updateProcessView();
-                break;
+        if (status.processCreated()){
+            processCreated();
         }
     }
 
-    /**
-     * Actualiza los tiempos restantes de ejecución
-     */
     private void updateTime() {
-        int ucpTime = simulator.getCPUTimeRemaining();
-        guiManager.setTimeRestUCP(ucpTime);
-        int processTime = simulator.getProcessTimeRemaining();
-        guiManager.setTimeRestProcess(processTime);
+        int timeClock = simulator.getStatus().getSimulatorClock();
+        guiManager.getPanelSimulationInfo().setTimeClock(timeClock);
+        int timeNextProcess = simulator.getProcessCreator().getTimeToNewProcess();
+        guiManager.getPanelCreateProcess().setTimeToNewProcess(timeNextProcess);
+    }
+
+    private void processCreated() {
+        guiManager.getPanelCreateProcess().addCount();
+        guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 
 

@@ -1,10 +1,8 @@
 package so.simulator.models;
 
 import so.simulator.models.exceptions.CPUException;
-import so.simulator.models.exceptions.ErrorCode;
 import so.util.observer.Observable;
 import so.util.observer.Observer;
-import so.util.observer.ObserverEvent;
 import so.util.queue.Queue;
 
 import java.util.ArrayList;
@@ -14,6 +12,8 @@ import java.util.concurrent.TimeUnit;
 public class Simulator extends Observable implements Runnable{
 
     private final SimulationStatus status;
+    private boolean stopSimulation;
+
     private ArrayList<Process> blockedList;
     private Queue<Process> readyQueue;
     private CPU cpu;
@@ -58,12 +58,12 @@ public class Simulator extends Observable implements Runnable{
     @Override
     public void run() {
         try {
-            while (status.isRunning()) {
+            while (status.isRunning() && !stopSimulation) {
                 this.update();
                 //duerme el hilo segundos
                 TimeUnit.SECONDS.sleep(1);
                 //notifica a los observadores que actualicen la vista
-                this.notify();
+                this.notifyObservers(status);
             }
         } catch (InterruptedException | CPUException e) {
             e.printStackTrace();
@@ -130,8 +130,24 @@ public class Simulator extends Observable implements Runnable{
         return status;
     }
 
+    public CPU getCpu() {
+        return cpu;
+    }
+
+    public ProcessCreator getProcessCreator() {
+        return creator;
+    }
+
     @Override
     public void addObserver(Observer o) {
         super.addObserver(o);
+    }
+
+    public void startSimulation() {
+        new Thread(this).start();
+    }
+
+    public void stopSimulation(){
+        stopSimulation = true;
     }
 }

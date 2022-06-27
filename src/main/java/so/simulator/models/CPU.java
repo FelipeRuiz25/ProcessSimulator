@@ -2,11 +2,6 @@ package so.simulator.models;
 
 import so.simulator.models.exceptions.CPUException;
 import so.simulator.models.exceptions.ErrorCode;
-import so.util.observer.Observable;
-import so.util.observer.Observer;
-import so.util.observer.ObserverEvent;
-
-import java.util.concurrent.TimeUnit;
 
 public class CPU {
 

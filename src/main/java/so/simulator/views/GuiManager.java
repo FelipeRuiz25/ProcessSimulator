@@ -4,9 +4,7 @@ import com.formdev.flatlaf.intellijthemes.FlatCyanLightIJTheme;
 import so.simulator.controllers.Commands;
 import so.simulator.views.components.ModifiedFlowLayout;
 import so.simulator.views.components.MyJButton;
-import so.simulator.views.panels.PanelAdminUCP;
-import so.simulator.views.panels.PanelCreateProcess;
-import so.simulator.views.panels.PanelProcessExecution;
+import so.simulator.views.panels.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,16 +13,16 @@ import java.util.ArrayList;
 
 public class GuiManager extends JFrame {
 
-
     private ActionListener listener;
-    private PanelAdminUCP panelAdminUCP;
+    private PanelSimulationInfo panelSimulationInfo;
     private PanelCreateProcess panelCreateProcess;
     private PanelProcessExecution panelProcessExecution;
+    private PanelCreateSimulation panelCreateSimulation;
+
+    private PanelProcessBlocked panelProcessBlocked;
     private JList<String> readyQueue;
-    private JList<String> blockedList;
     private JLabel labelReadyQueue;
     private JLabel labelBlockedList;
-    private MyJButton btnWakeProcess;
     private MyJButton btnOpenGraphs;
 
     public GuiManager(ActionListener listener) {
@@ -33,14 +31,14 @@ public class GuiManager extends JFrame {
         //configurar tema de la aplicacion
         FlatCyanLightIJTheme.setup();
         this.listener = listener;
-        this.panelAdminUCP = new PanelAdminUCP(listener);
+        this.panelSimulationInfo = new PanelSimulationInfo(listener);
         this.panelCreateProcess = new PanelCreateProcess(listener);
         this.panelProcessExecution = new PanelProcessExecution(listener);
-        this.readyQueue = new JList<String>();
-        this.blockedList = new JList<String>();
+        this.panelProcessBlocked = new PanelProcessBlocked(listener);
+        this.panelCreateSimulation = new PanelCreateSimulation(listener);
+        this.readyQueue = new JList<>();
         this.labelBlockedList = new JLabel("Procesos bloqueados: ");
         this.labelReadyQueue = new JLabel("Procesos listos: ");
-        this.btnWakeProcess = new MyJButton(listener, Commands.BTN_WAKE_PROCESS, "Despertar");
         this.btnOpenGraphs = new MyJButton(listener, Commands.BTN_OPEN_GRAPHICS, "Abrir Graficas");
         this.init();
     }
@@ -50,7 +48,6 @@ public class GuiManager extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        this.btnWakeProcess.setEnabled(false);
         this.btnOpenGraphs.setEnabled(false);
         this.setEnableLists(false);
         this.fill();
@@ -58,12 +55,7 @@ public class GuiManager extends JFrame {
         setVisible(true);
     }
 
-    public void resetSpinnerPanelCreateProcess(){
-        this.panelCreateProcess.resetSpinner();
-    }
-
     public void setEnableBtnWakeProcess(boolean status){
-        this.btnWakeProcess.setEnabled(status);
         this.btnOpenGraphs.setEnabled(status);
     }
 
@@ -74,23 +66,14 @@ public class GuiManager extends JFrame {
     public void clearList() {
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
-        this.blockedList.setModel(listModelEmpty);
     }
 
     public void setTimeRestProcess(int time) {
         this.panelProcessExecution.setTimeRest(time);
     }
 
-    public void setTimeRestUCP(int time) {
-        this.panelAdminUCP.setTimeRestUCP(time);
-    }
-
     public int getNameNewProcess() {
         return this.panelCreateProcess.getNameProcess();
-    }
-
-    public int getTimeNewProcess() {
-        return this.panelCreateProcess.getTimeProcess();
     }
 
     public void sumCountName() {
@@ -100,14 +83,9 @@ public class GuiManager extends JFrame {
     public void updateReadyQueue(ArrayList<String> namesProcess) {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         for (String process : namesProcess) {
-            System.out.println(process);
             listModel.addElement(process);
         }
         readyQueue.setModel(listModel);
-    }
-
-    public String getSelectItem(){
-        return this.blockedList.getSelectedValue();
     }
 
     public void setProcessActual(String nameProcess, int timeAssign, int timeRest) {
@@ -120,44 +98,37 @@ public class GuiManager extends JFrame {
             System.out.println(process);
             listModel.addElement(process);
         }
-        blockedList.setModel(listModel);
     }
 
     private void fill() {
+        this.panelCreateSimulation.setBounds(30,20, 200,550);
+
         this.setLayout(null);
-        this.panelAdminUCP.setBounds(20, 20, 360, 100);
-        this.panelCreateProcess.setBounds(400, 20, 360, 100);
-        this.readyQueue.setBounds(30, 160, 230, 380);
+        int move = 220;
+        this.panelSimulationInfo.setBounds(30+move, 20, 400, 120);
+        this.panelCreateProcess.setBounds(480+move, 20, 300, 120);
         readyQueue.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 1));
-        this.blockedList.setBounds(530, 160, 230, 380);
-        blockedList.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 1));
-        labelReadyQueue.setBounds(30, 130, 230, 20);
-        labelBlockedList.setBounds(530, 130, 230, 20);
+        labelReadyQueue.setBounds(100+move, 158, 230, 20);
         readyQueue.setLayout(new ModifiedFlowLayout());
         JScrollPane jScrollPaneQueueProcess = new JScrollPane(readyQueue);
         jScrollPaneQueueProcess.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-        jScrollPaneQueueProcess.setBounds(30, 160, 230, 380);
+        //ready Queue Bounds
+        jScrollPaneQueueProcess.setBounds(30+move, 170, 230, 400);
         add(jScrollPaneQueueProcess);
 
-        blockedList.setLayout(new ModifiedFlowLayout());
-        JScrollPane jScrollPaneBlockedList = new JScrollPane(blockedList);
-        jScrollPaneBlockedList.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-        jScrollPaneBlockedList.setBounds(530, 160, 230, 380);
-        add(jScrollPaneBlockedList);
-        this.blockedList.setFont(Constants.FONT_LIST);
         this.readyQueue.setFont(Constants.FONT_LIST);
-        blockedList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        this.panelProcessExecution.setBounds(270, 150, 250, 270);
+        this.panelProcessExecution.setBounds(270+move, 160, 250, 200);
+        this.panelProcessBlocked.setBounds(530+move, 160, 250,200);
         add(panelProcessExecution);
-        this.btnWakeProcess.setBounds(580, 550, 140, 30);
-        this.btnOpenGraphs.setBounds(330, 550, 140, 30);
-        add(panelAdminUCP);
+        this.btnOpenGraphs.setBounds(330+move, 550, 140, 30);
+        add(panelSimulationInfo);
         add(panelCreateProcess);
         add(labelReadyQueue);
         add(labelBlockedList);
         add(panelProcessExecution);
-        add(btnWakeProcess);
+        add(panelProcessBlocked);
         add(btnOpenGraphs);
+        add(panelCreateSimulation);
     }
 
     public void resetComponentsPanelCurrentProcess(){
@@ -165,27 +136,20 @@ public class GuiManager extends JFrame {
     }
 
     private void addToolTips(){
-        this.btnWakeProcess.setToolTipText(Constants.TOOL_TIP_BTN_WAKE_PROCESS);
         this.btnOpenGraphs.setToolTipText(Constants.TOOL_TIP_BTN_OPEN_GRAPHICS);
     }
 
     public void setEnableLists(boolean status) {
         this.readyQueue.setEnabled(status);
-        this.blockedList.setEnabled(status);
-    }
-
-    public int getTimeAssignUCP() {
-        return this.panelAdminUCP.getTimeAssignUCP();
     }
 
     public int getTimeRestUCP() {
-        return this.panelAdminUCP.getTimeRestUCP();
+        return this.panelSimulationInfo.getTimeRestUCP();
     }
 
     public void clearLists() {
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
-        this.blockedList.setModel(listModelEmpty);
         this.setEnableLists(false);
     }
 
@@ -195,15 +159,34 @@ public class GuiManager extends JFrame {
 
 
     public void resetSpinnerUCP() {
-        this.panelAdminUCP.resetComponentsUCP();
+        this.panelSimulationInfo.resetComponentsUCP();
     }
 
     public void setEnablePanelAdminUCP(boolean status) {
-        this.panelAdminUCP.setEnableComponents(status);
+        this.panelSimulationInfo.setEnableComponents(status);
     }
 
     public void setEnablePanelCreateProcess(boolean status) {
-        this.panelCreateProcess.setEnableComponents(status);
         this.panelCreateProcess.resetNameProcess();
+    }
+
+    public PanelCreateSimulation getPanelCreateSimulation() {
+        return panelCreateSimulation;
+    }
+
+    public PanelSimulationInfo getPanelSimulationInfo() {
+        return panelSimulationInfo;
+    }
+
+    public PanelCreateProcess getPanelCreateProcess() {
+        return panelCreateProcess;
+    }
+
+    public PanelProcessExecution getPanelProcessExecution() {
+        return panelProcessExecution;
+    }
+
+    public PanelProcessBlocked getPanelProcessBlocked() {
+        return panelProcessBlocked;
     }
 }

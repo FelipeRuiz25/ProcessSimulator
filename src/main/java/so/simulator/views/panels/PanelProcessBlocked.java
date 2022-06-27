@@ -1,47 +1,44 @@
 package so.simulator.views.panels;
 
-import so.simulator.controllers.Commands;
 import so.simulator.views.Constants;
-import so.simulator.views.components.MyJButton;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.event.ActionListener;
 
-public class PanelProcessExecution extends JPanel {
+public class PanelProcessBlocked extends JPanel {
 
     private ActionListener listener;
     private JLabel labelNameProcess;
     private JLabel labelTimeAssign;
     private JLabel labelTimeRest;
     private JLabel textFieldNameProcess;
-    private JLabel textFieldTimeAssign;
+    private JLabel textFieldTimeIRQ;
     private JLabel textFieldTimeRest;
-
     private JProgressBar progressBar;
 
-    public PanelProcessExecution(ActionListener listener) {
+    public PanelProcessBlocked(ActionListener listener) {
         this.listener = listener;
-        setBorder(BorderFactory.createTitledBorder(null, "Proceso en ejecucion", TitledBorder.CENTER, TitledBorder.TOP));
+        setBorder(BorderFactory.createTitledBorder(null, "Proceso bloqueado", TitledBorder.CENTER, TitledBorder.TOP));
         init();
     }
 
     private void init() {
         this.labelNameProcess = new JLabel(Constants.TEXT_LABEL_NAME_PROCESS);
-        this.labelTimeAssign = new JLabel("Tiempo vida: ");
+        this.labelTimeAssign = new JLabel("Tiempo IRQ: ");
         this.labelTimeRest = new JLabel("Tiempo restante: ");
         this.textFieldNameProcess = new JLabel();
-        this.textFieldTimeAssign = new JLabel();
+        this.textFieldTimeIRQ = new JLabel();
         this.textFieldTimeRest = new JLabel();
         this.progressBar = new JProgressBar(JProgressBar.HORIZONTAL,0,10);;
-        progressBar.setValue(6);
         progressBar.setStringPainted(true);
         this.fill();
     }
-    
+
+
     public void setProcessActual(String nameProcessActual, int timeAssign, int timeRest) {
         this.textFieldNameProcess.setText(nameProcessActual);
-        this.textFieldTimeAssign.setText(String.valueOf(timeAssign));
+        this.textFieldTimeIRQ.setText(String.valueOf(timeAssign));
         setTimeRest(timeRest);
     }
 
@@ -54,10 +51,11 @@ public class PanelProcessExecution extends JPanel {
     }
 
     public void resetComponents(){
-        this.textFieldTimeAssign.setText("0");
+        this.textFieldTimeIRQ.setText("0");
         this.textFieldTimeRest.setText("0");
         this.textFieldNameProcess.setText("0");
     }
+
 
     private void fill() {
         this.setLayout(null);
@@ -65,15 +63,16 @@ public class PanelProcessExecution extends JPanel {
         this.labelTimeAssign.setBounds(20, 70, 120, 20);
         this.labelTimeRest.setBounds(20, 100, 120, 20);
         this.textFieldNameProcess.setBounds(170, 40, 120, 25);
-        this.textFieldTimeAssign.setBounds(170, 70, 120, 25);
+        this.textFieldTimeIRQ.setBounds(170, 70, 120, 25);
         this.textFieldTimeRest.setBounds(170, 100, 120, 25);
         this.progressBar.setBounds(20, 150, 210, 25);
         add(labelNameProcess);
         add(labelTimeAssign);
         add(labelTimeRest);
         add(textFieldNameProcess);
-        add(textFieldTimeAssign);
+        add(textFieldTimeIRQ);
         add(textFieldTimeRest);
         add(progressBar);
     }
 }
+

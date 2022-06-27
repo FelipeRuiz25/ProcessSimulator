@@ -1,5 +1,7 @@
 package so.util.observer;
 
+import so.simulator.models.SimulationStatus;
+
 import java.util.ArrayList;
 
 public class Observable {
@@ -17,9 +19,10 @@ public class Observable {
         }
     }
 
-    public void notify(ObserverEvent event){
+    public void notifyObservers(SimulationStatus status){
+        System.out.println(status);
         for (Observer o: observers) {
-            o.update(event);
+            o.update(status);
         }
     }
 }

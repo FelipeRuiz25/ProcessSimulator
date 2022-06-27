@@ -1,8 +1,7 @@
 package so.simulator.views.panels;
 
-import so.simulator.controllers.Commands;
 import so.simulator.views.Constants;
-import so.simulator.views.components.MyJButton;
+import so.util.TimeParser;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -11,10 +10,13 @@ public class PanelCreateProcess extends JPanel {
 
     private JLabel labelNameProcess;
     private JLabel textFieldNameProcess;
-    private JLabel labelTextTimeProcess;
-    private JSpinner spinnerSegProcess;
-    private JLabel labelSeg;
-    private MyJButton btnCreateProcess;
+    private JLabel labelMaxTimeIO;
+    private JLabel textFieldMaxTimeIO;
+
+    private JLabel labelMaxTimeProcessLife;
+    private JLabel textFieldMaxTimeProcessLife;
+    private JLabel labelTimeToNewProcess;
+    private JLabel textFieldTimeToNewProcess;
 
     public PanelCreateProcess(ActionListener listener) {
         setBorder(BorderFactory.createTitledBorder(Constants.TITTLE_PANEL_CREATION_PROCESS));
@@ -24,63 +26,66 @@ public class PanelCreateProcess extends JPanel {
     private void init(ActionListener listener) {
         this.labelNameProcess = new JLabel(Constants.TEXT_LABEL_NAME_PROCESS);
         this.textFieldNameProcess = new JLabel("0");
-        this.labelTextTimeProcess = new JLabel(Constants.TEXT_LABEL_TIME_PROCESS);
-        SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel();
-        spinnerNumberModel.setMinimum(1);
-        spinnerNumberModel.setMaximum(300);
-        this.spinnerSegProcess = new JSpinner(spinnerNumberModel);
-        spinnerSegProcess.setValue(1);
-        this.labelSeg = new JLabel(Constants.TEXT_SEG);
-        this.btnCreateProcess = new MyJButton(listener, Commands.BTN_CREATE_PROCESS, Constants.TEXT_BTN_CREATE_PROCESS);
-        this.setEnableComponents(false);
-        this.addToolTips();
+        this.labelMaxTimeIO = new JLabel(Constants.TEXT_LABEL_MAX_TIME_IO);
+        this.labelMaxTimeProcessLife = new JLabel(Constants.TEXT_LABEL_MAX_TIME_PROCESS_LIFE);
+        this.labelTimeToNewProcess = new JLabel(Constants.TIME_TO_NEW_PROCESS);
+        this.textFieldMaxTimeIO = new JLabel("0:00");
+        this.textFieldMaxTimeProcessLife = new JLabel("0:00");
+        this.textFieldTimeToNewProcess = new JLabel("0:00");
         fill();
     }
 
     private void fill() {
         this.setLayout(null);
-        this.labelNameProcess.setBounds(20, 20, 60, 20);
-        this.textFieldNameProcess.setBounds(80, 15, 90, 30);
-        this.labelTextTimeProcess.setBounds(20, 50, 60, 20);
-        this.spinnerSegProcess.setBounds(75, 45, 90, 30);
-        this.labelSeg.setBounds(170, 50, 60, 20);
-        this.btnCreateProcess.setBounds(210, 20, 130, 60);
+        this.labelTimeToNewProcess.setBounds(20, 20, 200, 30);
+        this.textFieldTimeToNewProcess.setBounds(220, 20, 200, 30);
+
+        this.labelNameProcess.setBounds(20, 40, 200, 30);
+        this.textFieldNameProcess.setBounds(220, 40, 200, 30);
+
+        this.labelMaxTimeProcessLife.setBounds(20, 60, 200, 30);
+        this.textFieldMaxTimeProcessLife.setBounds(220, 60, 200, 30);
+
+        this.labelMaxTimeIO.setBounds(20, 80, 200, 30);
+        this.textFieldMaxTimeIO.setBounds(220, 80, 200, 30);
+
+        add(labelTimeToNewProcess);
+        add(textFieldTimeToNewProcess);
         add(labelNameProcess);
         add(textFieldNameProcess);
-        add(labelTextTimeProcess);
-        add(spinnerSegProcess);
-        add(labelSeg);
-        add(btnCreateProcess);
+        add(labelMaxTimeProcessLife);
+        add(textFieldMaxTimeProcessLife);
+        add(labelMaxTimeIO);
+        add(textFieldMaxTimeIO);
     }
-
-    private void addToolTips() {
-        this.btnCreateProcess.setToolTipText(Constants.PRESIONE_PARA_CREAR_UN_PROCESO_CON_LOS_DATOS_INGRESADOS);
-        this.spinnerSegProcess.setToolTipText(Constants.INGRESE_EL_TIEMPO_DE_EJECUCION_DEL_PROCESO);
-    }
-
     public void addCount() {
         this.textFieldNameProcess.setText(String.valueOf(Integer.parseInt(this.textFieldNameProcess.getText()) + 1));
-    }
-
-    public void setEnableComponents(boolean status) {
-        this.setEnabled(status);
-        this.spinnerSegProcess.setEnabled(status);
-        this.btnCreateProcess.setEnabled(status);
     }
 
     public int getNameProcess() {
         return Integer.parseInt(this.textFieldNameProcess.getText());
     }
 
-    public int getTimeProcess() {
-        return (int) spinnerSegProcess.getValue();
-    }
-
-    public void resetSpinner() {
-        this.spinnerSegProcess.setValue(1);
-    }
-
     public void resetNameProcess() {
         this.textFieldNameProcess.setText(String.valueOf(0));
+    }
+
+
+    public void setNameProcess(String nameProcess){
+        textFieldNameProcess.setText(nameProcess);
+    }
+    public void setMaxTimeIO(int maxTimeIO){
+        textFieldMaxTimeIO.setText(TimeParser.secondsToString(maxTimeIO));
+    }
+    public void setMaxTimeProcessLife(int maxTimeProcessLife){
+        textFieldMaxTimeProcessLife.setText(TimeParser.secondsToString(maxTimeProcessLife));
+    }
+    public void setTimeToNewProcess(int timeToNewProcess){
+        textFieldTimeToNewProcess.setText(TimeParser.secondsToString(timeToNewProcess));
+    }
+
+    public void setCreatorInfo(int maxTimeIO ,int maxTimeProcessLife){
+        setMaxTimeIO(maxTimeIO);
+        setMaxTimeProcessLife(maxTimeProcessLife);
     }
 }

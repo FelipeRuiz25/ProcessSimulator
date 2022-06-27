@@ -41,19 +41,19 @@ public class SimulationStatus {
         return simulatorClock;
     }
 
-    public boolean isProcessCreated() {
+    public boolean processCreated() {
         return processCreated;
     }
 
-    public boolean isCpuExpirationTime() {
+    public boolean cpuExpirationTime() {
         return cpuExpirationTime;
     }
 
-    public boolean isProcessBlocked() {
+    public boolean processBlocked() {
         return processBlocked;
     }
 
-    public boolean isNewProcessRunning() {
+    public boolean newProcessRunning() {
         return newProcessRunning;
     }
 

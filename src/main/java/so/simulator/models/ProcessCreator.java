@@ -12,7 +12,7 @@ public class ProcessCreator {
     /**
      * Tiempo maximo de vida que puede tener un proceso
      */
-    private final int maxTimeProcessLive;
+    private final int maxTimeProcessLife;
     /**
      * Tiempo maximo en que se creeara el proceso luego de la crecion del ultimo proceso
      */
@@ -26,14 +26,14 @@ public class ProcessCreator {
      * Define el creador de procesos con sus parametros limite para la creacion de nuevos
      * procesos
      * @param maxTimeIO Tiempo maximo que puede tomar una operacion de entrada salida
-     * @param maxTimeProcessLive Tiempo maximo de vida que puede tener un proceso
+     * @param maxTimeProcessLife Tiempo maximo de vida que puede tener un proceso
      * @param maxTimeNextProcess Tiempo maximo en que se creeara el proceso luego de la crecion del ultimo proceso
      */
-    public ProcessCreator(int maxTimeIO, int maxTimeProcessLive, int maxTimeNextProcess) {
-        if (maxTimeIO < 0 || maxTimeProcessLive < 0 || maxTimeNextProcess < 0)
+    public ProcessCreator(int maxTimeIO, int maxTimeProcessLife, int maxTimeNextProcess) {
+        if (maxTimeIO < 0 || maxTimeProcessLife < 0 || maxTimeNextProcess < 0)
             throw new IllegalArgumentException("todos los parametros deben ser mayores a cero");
         this.maxTimeIO = maxTimeIO;
-        this.maxTimeProcessLive = maxTimeProcessLive;
+        this.maxTimeProcessLife = maxTimeProcessLife;
         this.maxTimeNextProcess = maxTimeNextProcess;
         this.timeToNewProcess = 1;
     }
@@ -45,7 +45,7 @@ public class ProcessCreator {
      */
     public Process createProcess(){
         // Define el tiempo de vida del proceso
-        int lifeTime = RandomNumberGenerator.getRandIntBetween(1, maxTimeProcessLive+1);
+        int lifeTime = RandomNumberGenerator.getRandIntBetween(1, maxTimeProcessLife +1);
         // Define el segundo de inicio de la operacion de entrada salida
         int startIO = RandomNumberGenerator.getRandIntBetween(1, lifeTime+1);
         // Define la duracion de la operacion de entrada salida
@@ -71,11 +71,19 @@ public class ProcessCreator {
         return timeToNewProcess;
     }
 
+    public int getMaxTimeIO() {
+        return maxTimeIO;
+    }
+
+    public int getMaxTimeProcessLife() {
+        return maxTimeProcessLife;
+    }
+
     @Override
     public String toString() {
         return "ProcessCreator{" +
                 "maxTimeIO=" + maxTimeIO +
-                ", maxTimeProcessLive=" + maxTimeProcessLive +
+                ", maxTimeProcessLive=" + maxTimeProcessLife +
                 ", maxTimeNextProcess=" + maxTimeNextProcess +
                 '}';
     }
