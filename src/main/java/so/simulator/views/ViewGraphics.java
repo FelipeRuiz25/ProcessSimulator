@@ -15,7 +15,7 @@ public class ViewGraphics extends JFrame {
     private PanelGraphic graphicTimeOfReady;
     private PanelGraphic graphicTimeOfWaiting;
 
-    public ViewGraphics(ArrayList<Integer> listTimeLife,ArrayList<Integer> listTimeBlock){
+    public ViewGraphics(ArrayList<Integer> listTimeLife,ArrayList<Integer> listTimeBlock,ArrayList<Integer> listTimeReady){
         super(Constants.TITTLE);
         setIconImage(new ImageIcon(Constants.ICON_PATH).getImage());
         //configurar tema de la aplicacion
@@ -25,7 +25,7 @@ public class ViewGraphics extends JFrame {
         this.setBackground(Color.WHITE);
         this.mainPanel.setBackground(Color.WHITE);
         this.graphicTimeOfLife  = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_LIFE,listTimeLife);
-        this.graphicTimeOfReady = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_READY,listTimeLife);
+        this.graphicTimeOfReady = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_READY,listTimeReady);
         this.graphicTimeOfWaiting = new PanelGraphic(Constants.TITTLE_PANEL_GRAPHIC_TIME_WAITING,listTimeBlock);
         this.graphicTimeOfLife.setBackground(Color.WHITE);
         this.graphicTimeOfReady.setBackground(Color.WHITE);

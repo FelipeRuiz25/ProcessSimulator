@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Graficas Hechas pero con datos provisionales para verificar como se veian">
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/ProcessCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/ViewGraphics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/ViewGraphics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/panels/PanelGraphic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +159,7 @@
       <workItem from="1656121453934" duration="250000" />
       <workItem from="1656168815395" duration="2665000" />
       <workItem from="1656213358386" duration="14043000" />
-      <workItem from="1656339568795" duration="12458000" />
+      <workItem from="1656339568795" duration="14530000" />
     </task>
     <task id="LOCAL-00001" summary="clase Proccess creada :3">
       <created>1639453876371</created>
@@ -266,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656169942796</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo">
+      <created>1656362816505</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656362816505</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,7 +318,8 @@
     <MESSAGE value="contador - nombre nuevo proceso corregido" />
     <MESSAGE value="Version de entrega" />
     <MESSAGE value="prueba-01(comentario-Gui)" />
-    <option name="LAST_COMMIT_MESSAGE" value="prueba-01(comentario-Gui)" />
+    <MESSAGE value="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
