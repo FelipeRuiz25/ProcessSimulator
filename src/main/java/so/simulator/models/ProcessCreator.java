@@ -2,6 +2,8 @@ package so.simulator.models;
 
 import so.util.RandomNumberGenerator;
 
+import java.util.ArrayList;
+
 public class ProcessCreator {
 
     /**
@@ -23,6 +25,11 @@ public class ProcessCreator {
     private int timeToNewProcess;
 
     /**
+     * procesos creados por el creador de procesos
+     */
+    private ArrayList<Process> listProces;
+
+    /**
      * Define el creador de procesos con sus parametros limite para la creacion de nuevos
      * procesos
      * @param maxTimeIO Tiempo maximo que puede tomar una operacion de entrada salida
@@ -36,6 +43,7 @@ public class ProcessCreator {
         this.maxTimeProcessLife = maxTimeProcessLife;
         this.maxTimeNextProcess = maxTimeNextProcess;
         this.timeToNewProcess = 1;
+        this.listProces = new ArrayList<Process>();
     }
 
     /**
@@ -52,7 +60,9 @@ public class ProcessCreator {
         int timeIO = RandomNumberGenerator.getRandIntBetween(0, maxTimeIO+1);
         // Define el tiempo en que se creara el siguiente proceso
         timeToNewProcess = RandomNumberGenerator.getRandIntBetween(1, maxTimeNextProcess+1);
-        return new Process(lifeTime, startIO, timeIO);
+        Process process = new Process(lifeTime, startIO, timeIO);
+        listProces.add(process);
+        return process;
     }
 
     public boolean itsTimeToCreate(){
@@ -77,6 +87,10 @@ public class ProcessCreator {
 
     public int getMaxTimeProcessLife() {
         return maxTimeProcessLife;
+    }
+
+    public ArrayList<Process> getListProces() {
+        return listProces;
     }
 
     @Override

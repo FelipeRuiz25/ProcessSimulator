@@ -9,6 +9,7 @@ import so.util.observer.Observer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Controller implements ActionListener, Observer {
 
@@ -29,7 +30,7 @@ public class Controller implements ActionListener, Observer {
                 finishSimulation();
                 break;
             case Commands.BTN_OPEN_GRAPHICS:
-                new ViewGraphics();
+                new ViewGraphics(getListTimeOfLife(),getListTimeOfBlock());
                 break;
             case Commands.BTN_START_SIMULATION:
                 if(simulator != null) finishSimulation();
@@ -101,6 +102,22 @@ public class Controller implements ActionListener, Observer {
     private void processCreated() {
         guiManager.getPanelCreateProcess().addCount();
         guiManager.updateReadyQueue(simulator.getReadyQueue());
+    }
+
+    private ArrayList<Integer> getListTimeOfLife(){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (Process process : simulator.getProcessCreator().getListProces()){
+            list.add(process.getTimeLife());
+        }
+        return list;
+    }
+
+    private ArrayList<Integer> getListTimeOfBlock(){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (Process process : simulator.getProcessCreator().getListProces()){
+            list.add(process.getTimeIOOperation());
+        }
+        return list;
     }
 
 

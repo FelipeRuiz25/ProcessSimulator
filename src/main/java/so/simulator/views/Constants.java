@@ -11,9 +11,9 @@ public interface Constants {
     String TITTLE_PANEL_SIMULATION = " Simulacion ";
     String TITTLE_PANEL_CREATION_PROCESS = " Creacion de proceso ";
     String TITTLE_FRAME_GRAPHICS = "Graficas de los procesos";
-    String TITTLE_PANEL_GRAPHIC_TIME_LIFE = " Tabla del tiempo de vida total de los procesos ";
-    String TITTLE_PANEL_GRAPHIC_TIME_READY = " Tabla del tiempo en estado listo ";
-    String TITTLE_PANEL_GRAPHIC_TIME_WAITING = " Tabla del tiempo en estado bloqueado ";
+    String TITTLE_PANEL_GRAPHIC_TIME_LIFE = " Grafica del tiempo de vida total de los procesos ";
+    String TITTLE_PANEL_GRAPHIC_TIME_READY = " Grafica del tiempo en estado listo ";
+    String TITTLE_PANEL_GRAPHIC_TIME_WAITING = " Grafica del tiempo en estado bloqueado ";
     String TEXT_LABEL_TIME_ASSIGN = "Tiempo asignado: ";
     String TEXT_LABEl_CLOCK = "Tiempo simulacion: ";
     String TEXT_LABEL_QUANTUM = "Quantum";
