@@ -14,7 +14,7 @@ public class ProcessCreator {
      */
     private final int maxTimeProcessLive;
     /**
-     * Tiempo maximo en que se creeara el proceso luego de la crecion del ultimo proceso
+     * Tiempo maximo en que se creara el proceso luego de la crecion del ultimo proceso
      */
     private final int maxTimeNextProcess;
     /**
@@ -46,7 +46,7 @@ public class ProcessCreator {
     public Process createProcess(){
         // Define el tiempo de vida del proceso
         int lifeTime = RandomNumberGenerator.getRandIntBetween(1, maxTimeProcessLive+1);
-        // Define el segundo de inicio de la operacion de entrada salida
+        // Define el segundo de inicio de la operacion de entrada salida 30
         int startIO = RandomNumberGenerator.getRandIntBetween(1, lifeTime+1);
         // Define la duracion de la operacion de entrada salida
         int timeIO = RandomNumberGenerator.getRandIntBetween(0, maxTimeIO+1);

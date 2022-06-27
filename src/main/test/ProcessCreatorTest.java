@@ -35,8 +35,10 @@ public class ProcessCreatorTest {
             for (int i = 0; i < iterations; i++) {
                 if (creator.update() != null){
                     count++;
+
                 };
             }
+            System.out.println("Procesos creados: "+count);
             System.out.println("Pased");
         } catch (IllegalArgumentException e) {
             System.out.println("ILLEGAL ARGUMENT EXCEPTION");
@@ -60,21 +62,32 @@ public class ProcessCreatorTest {
 
         ProcessCreator[] list = new ProcessCreator[]{
                 new ProcessCreator(1, 1, 1),
-                new ProcessCreator(5, 1, 1),
+                new ProcessCreator(5, 1, 3),
                 new ProcessCreator(5, 10, 10)
         };
+
+
+        /*ProcessCreator processCreator =
+                new ProcessCreator(-1, 10, 10);
+
+            test.creator = processCreator;
+            test.test(10000);*/
+
         for (ProcessCreator c: list) {
             test.creator = c;
             test.test(10000);
         }
 
-        test.creator = new ProcessCreator(1,10,10);
+
+
+
+       /* test.creator = new ProcessCreator(1,10,10);
 
         double times = 1000;
         double sum = 0;
         for (int i = 0; i < times; i++) {
             sum += test.test(120);
         }
-        System.out.println(sum / times);
+        System.out.println(sum / times);*/
     }
 }
