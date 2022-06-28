@@ -137,7 +137,7 @@ public class GuiManager extends JFrame {
     }
 
 
-    public void setEnablePanelCreateProcess(boolean status) {
+    public void resetNameProcess() {
         this.panelCreateProcess.resetNameProcess();
     }
 

@@ -41,6 +41,7 @@ public class Controller implements ActionListener, Observer {
 
     private void finishSimulation() {
         Process.resetSequential();
+        guiManager.resetNameProcess();
         guiManager.resetSpinnerUCP();
         guiManager.resetComponentsPanelCurrentProcess();
         guiManager.clearLists();

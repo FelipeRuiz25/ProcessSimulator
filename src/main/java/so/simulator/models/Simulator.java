@@ -39,7 +39,11 @@ public class Simulator extends Observable implements Runnable{
     public ArrayList<String> getReadyQueue(){
         ArrayList<String> queue = new ArrayList<>();
         for (Process p : readyQueue) {
-            queue.add(p.getProcessName());
+            queue.add(
+                    p.getProcessName()
+                    +"   T vida: "+p.getTimeLife()
+                    +" inicio I/O: "+p.getStartIOOperation()
+            );
         }
         return queue;
     }

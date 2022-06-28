@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ProcessSimulator:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="gafricas completas">
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="opcion de finalizar simulacion implementada">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Simulator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/views/GuiManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/views/GuiManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,22 +61,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/felipe/Mintic/Ciclo 2/reto3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/felipe/Mintic/Ciclo 2/reto3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main" />
@@ -277,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656370127819</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="opcion de finalizar simulacion implementada">
+      <created>1656384503576</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1656384503576</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +338,8 @@
     <MESSAGE value="prueba-01(comentario-Gui)" />
     <MESSAGE value="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo" />
     <MESSAGE value="gafricas completas" />
-    <option name="LAST_COMMIT_MESSAGE" value="gafricas completas" />
+    <MESSAGE value="opcion de finalizar simulacion implementada" />
+    <option name="LAST_COMMIT_MESSAGE" value="opcion de finalizar simulacion implementada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

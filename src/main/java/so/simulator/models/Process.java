@@ -89,6 +89,10 @@ public class Process {
         timeReady++;
     }
 
+    public static int getSequential() {
+        return sequential;
+    }
+
     @Override
     public String toString() {
         return "name='" + processName + '\'' +
