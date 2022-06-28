@@ -157,6 +157,7 @@ public class Simulator extends Observable implements Runnable{
     }
 
     public void finishSimulation(){
+        stopSimulation = true;
         while (status.isRunning()){
             try {
                 update();
@@ -165,6 +166,5 @@ public class Simulator extends Observable implements Runnable{
                 throw new RuntimeException(e);
             }
         }
-        stopSimulation = true;
     }
 }

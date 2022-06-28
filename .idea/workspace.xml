@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Informacion cola de espera actualizada">
+    <list default="true" id="fd0f448c-2bb0-4b03-a8d3-df750482a641" name="Changes" comment="Version de entrega">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/so/simulator/models/Simulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/so/simulator/models/Simulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/controllers/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/so/simulator/models/Process.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656385701772</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Version de entrega">
+      <created>1656386026349</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1656386026349</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,13 +345,13 @@
     <MESSAGE value="transiciones vista" />
     <MESSAGE value="Version &quot;Estable&quot;" />
     <MESSAGE value="contador - nombre nuevo proceso corregido" />
-    <MESSAGE value="Version de entrega" />
     <MESSAGE value="prueba-01(comentario-Gui)" />
     <MESSAGE value="Graficas de tiempo de vida y bloqueada funcionando falta la de tiempo listo" />
     <MESSAGE value="gafricas completas" />
     <MESSAGE value="opcion de finalizar simulacion implementada" />
     <MESSAGE value="Informacion cola de espera actualizada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Informacion cola de espera actualizada" />
+    <MESSAGE value="Version de entrega" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version de entrega" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

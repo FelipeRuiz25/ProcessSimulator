@@ -3,7 +3,7 @@ package so.simulator.models;
 public class Process {
 
     //Contador para los nombres de los procesos
-    private static int sequential;
+    private volatile static int sequential;
 
     private final String processName;
     //Segundos que el proceso va a estar en ejecución
