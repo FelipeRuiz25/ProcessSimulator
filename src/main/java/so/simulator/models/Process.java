@@ -81,6 +81,10 @@ public class Process {
         return timeIORemaining;
     }
 
+    public int getTimeReady() {
+        return timeReady;
+    }
+
     public void addTimeReady(){
         timeReady++;
     }

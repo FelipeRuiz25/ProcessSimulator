@@ -48,7 +48,6 @@ public class GuiManager extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
-        this.btnOpenGraphs.setEnabled(false);
         this.setEnableLists(false);
         this.fill();
         addToolTips();

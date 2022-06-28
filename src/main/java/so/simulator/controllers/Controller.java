@@ -30,7 +30,7 @@ public class Controller implements ActionListener, Observer {
                 finishSimulation();
                 break;
             case Commands.BTN_OPEN_GRAPHICS:
-                new ViewGraphics(getListTimeOfLife(),getListTimeOfBlock());
+                new ViewGraphics(getListTimeOfLife(),getListTimeOfBlock(),getListTimeReady());
                 break;
             case Commands.BTN_START_SIMULATION:
                 if(simulator != null) finishSimulation();
@@ -108,6 +108,14 @@ public class Controller implements ActionListener, Observer {
         ArrayList<Integer> list = new ArrayList<Integer>();
         for (Process process : simulator.getProcessCreator().getListProces()){
             list.add(process.getTimeLife());
+        }
+        return list;
+    }
+
+    private ArrayList<Integer> getListTimeReady(){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (Process process : simulator.getProcessCreator().getListProces()){
+            list.add(process.getTimeReady());
         }
         return list;
     }
