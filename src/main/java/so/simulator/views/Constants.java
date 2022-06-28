@@ -6,7 +6,7 @@ public interface Constants {
 
     String ICON_PATH = "src/main/resources/SimulatorIcon.png";
     String TITTLE = "Simulador: Transiciones de procesos";
-    Dimension SIZE = new Dimension(1030, 600);
+    Dimension SIZE = new Dimension(1030, 650);
 
     String TITTLE_PANEL_SIMULATION = " Simulacion ";
     String TITTLE_PANEL_CREATION_PROCESS = " Creacion de proceso ";
