@@ -91,7 +91,7 @@ public class GuiManager extends JFrame {
         this.panelSimulationInfo.setBounds(30+move, 20, 400, 120);
         this.panelCreateProcess.setBounds(480+move, 20, 300, 120);
         readyQueue.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 1));
-        labelReadyQueue.setBounds(100+move, 158, 230, 20);
+        labelReadyQueue.setBounds(100+move, 150, 230, 20);
         readyQueue.setLayout(new ModifiedFlowLayout());
         JScrollPane jScrollPaneQueueProcess = new JScrollPane(readyQueue);
         jScrollPaneQueueProcess.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
