@@ -33,7 +33,7 @@ public class Controller implements ActionListener, Observer {
                 new ViewGraphics(getListTimeOfLife(),getListTimeOfBlock(),getListTimeReady());
                 break;
             case Commands.BTN_START_SIMULATION:
-                if(simulator != null) finishSimulation();
+                if(simulator != null) simulator.stopSimulation();
                 createSimulation();
                 break;
         }
@@ -41,16 +41,11 @@ public class Controller implements ActionListener, Observer {
 
     private void finishSimulation() {
         Process.resetSequential();
-        Output.showInfoMessage("Simulacion finalizada.");
-        guiManager.setEnablePanelAdminUCP(true);
-        guiManager.setEnablePanelCreateProcess(false);
-        guiManager.setEnableLists(false);
-        guiManager.setEnableBtnWakeProcess(false);
-        guiManager.setEnablePanelProcessExecution(false);
         guiManager.resetSpinnerUCP();
         guiManager.resetComponentsPanelCurrentProcess();
         guiManager.clearLists();
         if (simulator != null) simulator.stopSimulation();
+        Output.showInfoMessage("Simulacion finalizada.");
     }
 
     private void createSimulation() {
@@ -150,15 +145,5 @@ public class Controller implements ActionListener, Observer {
                     process.getTimeIOOperation(),
                     process.getTimeIORemaining()-1);
         }
-    }
-
-    private void nextProcess() {
-        Process process = simulator.getRunningProcess();
-        guiManager.setProcessActual(
-                process.getProcessName(),
-                process.getTimeLife(),
-                process.getLifeTimeRemaining()
-        );
-        guiManager.updateReadyQueue(simulator.getReadyQueue());
     }
 }

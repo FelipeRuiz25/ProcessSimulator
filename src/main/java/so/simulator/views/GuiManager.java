@@ -71,14 +71,6 @@ public class GuiManager extends JFrame {
         this.panelProcessExecution.setTimeRest(time);
     }
 
-    public int getNameNewProcess() {
-        return this.panelCreateProcess.getNameProcess();
-    }
-
-    public void sumCountName() {
-        panelCreateProcess.addCount();
-    }
-
     public void updateReadyQueue(ArrayList<String> namesProcess) {
         DefaultListModel<String> listModel = new DefaultListModel<>();
         for (String process : namesProcess) {
@@ -89,14 +81,6 @@ public class GuiManager extends JFrame {
 
     public void setProcessActual(String nameProcess, int timeAssign, int timeRest) {
         this.panelProcessExecution.setProcessActual(nameProcess, timeAssign, timeRest);
-    }
-
-    public void updateBlockedList(ArrayList<String> namesProcess) {
-        DefaultListModel<String> listModel = new DefaultListModel<>();
-        for (String process : namesProcess) {
-            System.out.println(process);
-            listModel.addElement(process);
-        }
     }
 
     private void fill() {
@@ -142,28 +126,16 @@ public class GuiManager extends JFrame {
         this.readyQueue.setEnabled(status);
     }
 
-    public int getTimeRestUCP() {
-        return this.panelSimulationInfo.getTimeRestUCP();
-    }
-
     public void clearLists() {
         DefaultListModel<String> listModelEmpty = new DefaultListModel<>();
         this.readyQueue.setModel(listModelEmpty);
         this.setEnableLists(false);
     }
 
-    public int getFirstProcess() {
-        return this.readyQueue.getFirstVisibleIndex();
-    }
-
-
     public void resetSpinnerUCP() {
         this.panelSimulationInfo.resetComponentsUCP();
     }
 
-    public void setEnablePanelAdminUCP(boolean status) {
-        this.panelSimulationInfo.setEnableComponents(status);
-    }
 
     public void setEnablePanelCreateProcess(boolean status) {
         this.panelCreateProcess.resetNameProcess();

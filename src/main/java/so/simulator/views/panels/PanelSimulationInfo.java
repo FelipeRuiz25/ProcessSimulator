@@ -28,7 +28,6 @@ public class PanelSimulationInfo extends JPanel {
         this.textTimeClock = new JLabel("0:00");
         this.quantum = new JLabel(Constants.TEXT_LABEL_QUANTUM);
         this.textQuantum = new JLabel("0");
-        this.btnFinishSimulation.setEnabled(false);
         addToolTips();
         fill();
     }
