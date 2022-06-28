@@ -42,7 +42,7 @@ public class Simulator extends Observable implements Runnable{
             queue.add(
                     p.getProcessName()
                     +"   T vida: "+p.getTimeLife()
-                    +" inicio I/O: "+p.getStartIOOperation()
+                    +"   inicio I/O: "+p.getStartIOOperation()
             );
         }
         return queue;
