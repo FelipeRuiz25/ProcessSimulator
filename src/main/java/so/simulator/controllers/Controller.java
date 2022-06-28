@@ -33,7 +33,7 @@ public class Controller implements ActionListener, Observer {
                 new ViewGraphics(getListTimeOfLife(),getListTimeOfBlock(),getListTimeReady());
                 break;
             case Commands.BTN_START_SIMULATION:
-                if(simulator != null) simulator.stopSimulation();
+                if(simulator != null) simulator.finishSimulation();
                 createSimulation();
                 break;
         }
@@ -44,7 +44,9 @@ public class Controller implements ActionListener, Observer {
         guiManager.resetSpinnerUCP();
         guiManager.resetComponentsPanelCurrentProcess();
         guiManager.clearLists();
-        if (simulator != null) simulator.stopSimulation();
+        if (simulator != null) {
+            simulator.finishSimulation();
+        }
         Output.showInfoMessage("Simulacion finalizada.");
     }
 

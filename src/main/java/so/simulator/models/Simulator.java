@@ -152,7 +152,15 @@ public class Simulator extends Observable implements Runnable{
         new Thread(this).start();
     }
 
-    public void stopSimulation(){
+    public void finishSimulation(){
+        while (status.isRunning()){
+            try {
+                update();
+                notifyObservers(status);
+            } catch (CPUException e) {
+                throw new RuntimeException(e);
+            }
+        }
         stopSimulation = true;
     }
 }

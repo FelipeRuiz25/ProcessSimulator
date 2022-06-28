@@ -103,7 +103,7 @@ public class GuiManager extends JFrame {
         this.panelProcessExecution.setBounds(270+move, 160, 250, 200);
         this.panelProcessBlocked.setBounds(530+move, 160, 250,200);
         add(panelProcessExecution);
-        this.btnOpenGraphs.setBounds(330+move, 500, 140, 30);
+        this.btnOpenGraphs.setBounds(455+move, 380, 140, 30);
         add(panelSimulationInfo);
         add(panelCreateProcess);
         add(labelReadyQueue);
